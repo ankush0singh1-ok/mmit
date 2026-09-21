@@ -125,7 +125,7 @@
   );
   
   transform: skewX(-25deg);
-  animation: indian-flag-shimmer 8s infinite;
+  animation: indian-flag-shimmer 13s infinite;
   pointer-events: none;
 }
 
@@ -431,7 +431,7 @@ html,body {
   max-width: 340px; /* Controls how large the photo can get */
   height: auto;
   object-fit: cover;
-  border: 5px solid white; /* Gives it a clean photo frame look */
+  border: 5px solid rgb(184, 109, 109); /* Gives it a clean photo frame look */
   position: relative;
   z-index: 2;
 }
@@ -440,9 +440,9 @@ html,body {
 .photo-accent-bg {
   position: absolute;
   top: 25px;
-  left: 25px;
-  right: -5px;
-  bottom: -5px;
+  left: 25x;
+  right: 0px;
+  bottom: 0px;
   background: linear-gradient(135deg, #f08519 0%, #ffc107 100%);
   z-index: 1;
   opacity: 0.85;

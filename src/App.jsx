@@ -15,23 +15,45 @@ import Accreditation from './components/AICTE/Accrediation.jsx';
 import AicteCollaboration from './components/AICTE/collaboration.jsx';
 import AcademicsProgramme from './components/Academics/Academics_p.jsx';
 import AcademicsSyllabus from './components/Academics/Academic_sy.jsx';
+import AcademicsAdmission from './components/Academics/admission.jsx';
+import AcademicsFeeStructure from './components/Academics/fee_struct.jsx';
+import AdminLogin from './components/adminlogin.jsx';
+import FacultyLogin from './components/facultylogin.jsx';
+import FacultySignUp from './components/facultyreg.jsx';
+import FacultyDashboard from './components/faculty-dash.jsx';
+import AdminDashboard from './components/admin-dash.jsx';
+import DepartmentPage from './components/department.jsx';
+import NotFound from './components/notfound.jsx';
+import ContactUs from './components/contactus.jsx';
 
 const App = () => {
+  window.alert("Welcome to MMITH Gorakhpur ");
   return (
     <>
       <CommonMenu />
 
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/about' element={<VisionMission/>} />
-        <Route path='/aicte/mandatory-disclosure' element={<MandatoryDisclosure/>} />
-        <Route path='/aicte/eoa-letter' element={<EoaLetter/>} />
-        <Route path='/aicte/accreditation' element={<Accreditation/>} />
-        <Route path='/aicte/collaboration' element={<AicteCollaboration/>} />
-        <Route path='/academics/programme' element={<AcademicsProgramme/>} />
-        <Route path='/academics/syllabus' element={<AcademicsSyllabus/>} />
+        <Route path='/about' element={<VisionMission />} />
+        <Route path='/aicte/mandatory-disclosure' element={<MandatoryDisclosure />} />
+        <Route path='/aicte/eoa-letter' element={<EoaLetter />} />
+        <Route path='/aicte/accreditation' element={<Accreditation />} />
+        <Route path='/aicte/collaboration' element={<AicteCollaboration />} />
+        <Route path='/academics/programme' element={<AcademicsProgramme />} />
+        <Route path='/academics/syllabus' element={<AcademicsSyllabus />} />
+        <Route path='/academics/admission' element={<AcademicsAdmission />} />
+        <Route path='/academics/fee' element={<AcademicsFeeStructure />} />
+        <Route path='/login-mmit-admin' element={<AdminLogin />} />
+        <Route path='/login-faculty' element={<FacultyLogin />} />
+        <Route path='/sign-up-faculty' element={<FacultySignUp />} />
+        <Route path='/faculty/dashboard' element={<FacultyDashboard />} />
+        <Route path='/admin/dashboard' element={<AdminDashboard />} />
+        <Route path="/departments/:branchId" element={<DepartmentPage />} />
+        <Route path="/contact-us" element={<ContactUs />} />
+        <Route path="/gallery" element={<gallery />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
-      <Footer/>
+      <Footer />
     </>
   );
 };

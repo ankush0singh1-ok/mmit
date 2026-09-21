@@ -4,11 +4,11 @@ import '../App.css';
 const HeroSection = () => {
   // 1. Array for the 5 Carousel Images
   const carouselImages = [
-    "./images/IMG20260501160921.jpg", // Replace with your 1st image path
-    "./images/IMG20260501160816.jpg", // Replace with your 2nd image path
-    "./images/IMG20260501160832.jpg", // Replace with your 3rd image path
-    "./images/IMG20260501160941.jpg", // Replace with your 4th image path
-    "./images/IMG20260501154503.jpg"  // Replace with your 5th image path
+    "./images/IMG20260501160921.jpg", 
+    "./images/IMG20260501160816.jpg", 
+    "./images/IMG20260501160832.jpg", 
+    "./images/IMG20260501160941.jpg", 
+    "./images/IMG20260501154503.jpg"  
   ];
 
   // 2. Array for the Dignitaries

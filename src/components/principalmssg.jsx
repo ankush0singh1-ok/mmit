@@ -16,9 +16,9 @@ const PrincipalMessage = () => {
                 
                 {/* The Image Tag - Update the src when you have the real photo */}
                 <img
-                  src="./images/principal-photo.jpg" 
+                  src="./images/principal.png" 
                   alt="Shri B. N. Chaudhari - Principal"
-                  className="principal-photo img-fluid rounded-4 shadow-lg"
+                  className="principal-photo img-fluid rounded-4 "
                   onError={(e) => { e.target.src = 'https://via.placeholder.com/350x450?text=Principal+Photo' }}
                 />
                 
