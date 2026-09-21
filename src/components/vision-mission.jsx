@@ -1,0 +1,57 @@
+import React from 'react';
+import '../App.css'; 
+
+const VisionMission = () => {
+  return (
+    <section className="py-5 flux-section-bg">
+      <div className="container-fluid px-4">
+        {/* align-items-stretch forces both columns to be the exact same height */}
+        <div className="row g-4 align-items-stretch">
+          
+          {/* LEFT COLUMN: Mission & Vision */}
+          <div className="col-12 d-flex flex-column gap-4">
+            
+            {/* Mission Card */}
+            <div className="flux-card flex-grow-1 p-4 p-md-5 d-flex flex-column justify-content-center">
+              <div className="d-flex align-items-center mb-3 position-relative z-index-2">
+                <div className="flux-icon-box rounded-circle d-flex align-items-center justify-content-center me-3">
+                  <svg width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                    <path d="M8 13A5 5 0 1 1 8 3a5 5 0 0 1 0 10zm0 1A6 6 0 1 0 8 2a6 6 0 0 0 0 12z"/>
+                    <path d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
+                  </svg>
+                </div>
+                <h2 className="m-0 fw-bold text-dark custom-heading">OUR <span className="text-warning">MISSION</span></h2>
+              </div>
+              <p className="text-muted fs-6 lh-lg mb-0 position-relative z-index-2">
+                To cultivate a dynamic and innovative learning ecosystem that bridges the gap between theoretical computing and industry demands. We are deeply committed to empowering our students with cutting-edge technical skills, fostering a culture of continuous research, and promoting sustainable technological solutions to lead the digital transformation of tomorrow.
+              </p>
+            </div>
+
+            {/* Vision Card */}
+            <div className="flux-card flex-grow-1 p-4 p-md-5 d-flex flex-column justify-content-center">
+              <div className="d-flex align-items-center mb-3 position-relative z-index-2">
+                <div className="flux-icon-box rounded-circle d-flex align-items-center justify-content-center me-3">
+                  <svg width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M2 6a6 6 0 1 1 10.174 4.31c-.203.196-.359.4-.453.619l-.762 1.769A.5.5 0 0 1 10.5 13a.5.5 0 0 1 0 1 .5.5 0 0 1 0 1l-.224.447a1 1 0 0 1-.894.553H6.618a1 1 0 0 1-.894-.553L5.5 15a.5.5 0 0 1 0-1 .5.5 0 0 1 0-1 .5.5 0 0 1-.46-.302l-.761-1.77c-.094-.219-.25-.423-.453-.618A5.984 5.984 0 0 1 2 6zm6-5a5 5 0 0 0-3.479 8.592c.263.254.514.564.676.941L5.83 12h4.342l.632-1.467c.162-.377.413-.687.676-.941A5 5 0 0 0 8 1z"/>
+                  </svg>
+                </div>
+                <h2 className="m-0 fw-bold text-dark custom-heading">OUR <span className="text-warning">VISION</span></h2>
+              </div>
+              <p className="text-muted fs-6 lh-lg mb-0 position-relative z-index-2">
+                To emerge as a premier, globally recognized hub of technical excellence. We envision producing adaptable, forward-thinking technocrats and engineers who are equipped with the competent skills necessary to drive global innovation and contribute meaningfully to the betterment of society.
+              </p>
+            </div>
+
+          </div>
+
+         
+          
+
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default VisionMission;
