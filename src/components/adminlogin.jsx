@@ -18,7 +18,11 @@ const AdminLogin = () => {
     setError(null);
 
     try {
+<<<<<<< HEAD
       const response = await fetch('http://localhost:5000/api/auth/admin/login', {
+=======
+      const response = await fetch('https://api-pl5i.onrender.com/api/auth/admin/login', {
+>>>>>>> 193eab8 (new)
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(credentials)

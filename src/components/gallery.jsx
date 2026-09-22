@@ -11,7 +11,11 @@ const Gallery = () => {
   useEffect(() => {
     const fetchGallery = async () => {
       try {
+<<<<<<< HEAD
         const response = await fetch('http://localhost:5000/api/gallery');
+=======
+        const response = await fetch('https://api-pl5i.onrender.com/api/gallery');
+>>>>>>> 193eab8 (new)
         if (response.ok) {
           const data = await response.json();
           // Reverse so newest uploads show first

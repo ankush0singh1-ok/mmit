@@ -19,7 +19,11 @@ const DepartmentPage = () => {
   useEffect(() => {
     const fetchFaculties = async () => {
       try {
+<<<<<<< HEAD
         const response = await fetch('http://localhost:5000/api/faculty');
+=======
+        const response = await fetch('https://api-pl5i.onrender.com/api/faculty');
+>>>>>>> 193eab8 (new)
         if (response.ok) {
           const data = await response.json();
           // Filter using the dbKey (e.g., 'CS') instead of the URL string

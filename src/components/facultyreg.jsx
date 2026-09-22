@@ -26,7 +26,11 @@ const FacultySignUp = () => {
     setError(null);
 
     try {
+<<<<<<< HEAD
       const response = await fetch('http://localhost:5000/api/sign-up-faculty', {
+=======
+      const response = await fetch('https://api-pl5i.onrender.com/api/sign-up-faculty', {
+>>>>>>> 193eab8 (new)
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         // Exclude confirmPassword from the payload sent to the backend
