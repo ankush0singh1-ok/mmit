@@ -9,6 +9,8 @@ const FacultyLogin = () => {
   const navigate = useNavigate();
 
   const handleChange = (e) => {
+    // Clear the error message as soon as the user starts correcting their input
+    if (error) setError(null);
     setCredentials({ ...credentials, [e.target.name]: e.target.value });
   };
 
@@ -18,25 +20,41 @@ const FacultyLogin = () => {
     setError(null);
 
     try {
-      const response = await fetch('https://api-pl5i.onrender.com/api/auth/login-faculty', {
+      // Use an environment variable for the API base URL
+      // Vite uses import.meta.env, Create React App uses process.env
+      const apiUrl = process.env.REACT_APP_API_URL || 'https://api-pl5i.onrender.com';
+      
+      const response = await fetch(`${apiUrl}/api/auth/login-faculty`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(credentials)
       });
 
-      const data = await response.json();
-
-      if (!response.ok) {
-        throw new Error(data.message || 'Login failed');
+      // Check if the response is actually JSON before parsing to prevent crashes
+      const contentType = response.headers.get("content-type");
+      let data = {};
+      if (contentType && contentType.indexOf("application/json") !== -1) {
+        data = await response.json();
       }
 
+      if (!response.ok) {
+        throw new Error(data.message || 'Invalid credentials. Please try again.');
+      }
+
+      // Store auth data
       localStorage.setItem('token', data.token);
       localStorage.setItem('user', JSON.stringify(data.user));
 
+      // Redirect on success
       navigate('/faculty/dashboard'); 
       
     } catch (err) {
-      setError(err.message);
+      // Differentiate between network errors and API errors
+      if (err.name === 'TypeError') {
+        setError('Unable to connect to the server. Please check your internet connection.');
+      } else {
+        setError(err.message);
+      }
     } finally {
       setIsLoading(false);
     }
