@@ -8,11 +8,8 @@ const MissionNewsSection = () => {
   useEffect(() => {
     const fetchNews = async () => {
       try {
-<<<<<<< HEAD
         const response = await fetch('http://localhost:5000/api/news');
-=======
         const response = await fetch('https://api-pl5i.onrender.com/api/news');
->>>>>>> 193eab8 (new)
         if (response.ok) {
           const data = await response.json();
           // Slice the array to ensure only the first 10 items are displayed on the homepage
