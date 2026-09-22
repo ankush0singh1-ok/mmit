@@ -25,6 +25,7 @@ import AdminDashboard from './components/admin-dash.jsx';
 import DepartmentPage from './components/department.jsx';
 import NotFound from './components/notfound.jsx';
 import ContactUs from './components/contactus.jsx';
+import Gallery from './components/gallery.jsx';
 
 const App = () => {
   window.alert("Welcome to MMITH Gorakhpur ");
@@ -50,7 +51,7 @@ const App = () => {
         <Route path='/admin/dashboard' element={<AdminDashboard />} />
         <Route path="/departments/:branchId" element={<DepartmentPage />} />
         <Route path="/contact-us" element={<ContactUs />} />
-        <Route path="/gallery" element={<gallery />} />
+        <Route path="/gallery" element={<Gallery />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
