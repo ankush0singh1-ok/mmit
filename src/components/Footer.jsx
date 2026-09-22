@@ -10,11 +10,7 @@ const Footer = () => {
   useEffect(() => {
     const fetchStats = async () => {
       try {
-<<<<<<< HEAD
-        const response = await fetch('http://localhost:5000/api/stats');
-=======
         const response = await fetch('https://api-pl5i.onrender.com/api/stats');
->>>>>>> 193eab8 (new)
         if (response.ok) {
           const data = await response.json();
           setStats(data);

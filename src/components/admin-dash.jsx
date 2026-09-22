@@ -45,11 +45,7 @@ const AdminDashboard = () => {
   // 2. Fetch Live News
   const fetchNews = async () => {
     try {
-<<<<<<< HEAD
-      const response = await fetch('http://localhost:5000/api/news');
-=======
       const response = await fetch('https://api-pl5i.onrender.com/api/news');
->>>>>>> 193eab8 (new)
       if (response.ok) {
         const data = await response.json();
         setNewsItems(data);
@@ -62,11 +58,7 @@ const AdminDashboard = () => {
   // 3. Fetch Faculty Accounts
   const fetchFaculties = async () => {
     try {
-<<<<<<< HEAD
-      const response = await fetch('http://localhost:5000/api/faculty');
-=======
       const response = await fetch('https://api-pl5i.onrender.com/api/faculty');
->>>>>>> 193eab8 (new)
       if (response.ok) {
         const data = await response.json();
         setFacultyList(data);
@@ -88,11 +80,7 @@ const AdminDashboard = () => {
     setMessage({ type: '', text: '' });
 
     try {
-<<<<<<< HEAD
-      const response = await fetch('http://localhost:5000/api/news', {
-=======
       const response = await fetch('https://api-pl5i.onrender.com/api/news', {
->>>>>>> 193eab8 (new)
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData)
@@ -114,11 +102,7 @@ const AdminDashboard = () => {
   const handleDeleteNews = async (id) => {
     if (!window.confirm("Are you sure you want to delete this announcement?")) return;
     try {
-<<<<<<< HEAD
-      const response = await fetch(`http://localhost:5000/api/news/${id}`, { method: 'DELETE' });
-=======
       const response = await fetch(`https://api-pl5i.onrender.com/api/news/${id}`, { method: 'DELETE' });
->>>>>>> 193eab8 (new)
       if (!response.ok) throw new Error('Failed to delete announcement.');
       fetchNews(); 
     } catch (error) {
@@ -130,11 +114,7 @@ const AdminDashboard = () => {
   const handleDeleteFaculty = async (id) => {
     if (!window.confirm("CRITICAL WARNING: Are you sure you want to permanently delete this faculty account?")) return;
     try {
-<<<<<<< HEAD
-      const response = await fetch(`http://localhost:5000/api/faculty/${id}`, { method: 'DELETE' });
-=======
       const response = await fetch(`https://api-pl5i.onrender.com/api/faculty/${id}`, { method: 'DELETE' });
->>>>>>> 193eab8 (new)
       if (!response.ok) throw new Error('Failed to delete faculty member.');
       fetchFaculties(); 
     } catch (error) {
@@ -189,11 +169,7 @@ const AdminDashboard = () => {
         submitData.append('image', selectedFile);
 
         // FormData request (No headers needed)
-<<<<<<< HEAD
-        response = await fetch('http://localhost:5000/api/gallery', {
-=======
         response = await fetch('https://api-pl5i.onrender.com/api/gallery', {
->>>>>>> 193eab8 (new)
           method: 'POST',
           body: submitData 
         });
@@ -202,11 +178,7 @@ const AdminDashboard = () => {
         if (!imageUrl) return alert("Please enter an image URL!");
 
         // JSON request (Headers required)
-<<<<<<< HEAD
-        response = await fetch('http://localhost:5000/api/gallery', {
-=======
         response = await fetch('https://api-pl5i.onrender.com/api/gallery', {
->>>>>>> 193eab8 (new)
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ title, category, imageUrl })
