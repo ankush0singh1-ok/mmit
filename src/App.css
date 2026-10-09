@@ -415,7 +415,6 @@
 }
 html,body {
   max-width: 100%;
-  overflow-x: hidden;
 }
 /* =========================================
    Principal Message Section
@@ -529,15 +528,8 @@ html,body {
 .border-secondary {
   border-color: #333 !important;
 }
-/* Fixes position: sticky failing in React */
-html, body, #root {
-  overflow-x: visible !important;
-}
 
-/* If you need to stop horizontal scrolling, use 'clip' instead of 'hidden' */
-body {
-  overflow-x: clip !important; 
-}
+
 /* =========================================
    1. DESKTOP FIX: Prevent Links Overflowing
    ========================================= */
