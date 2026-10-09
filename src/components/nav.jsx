@@ -88,7 +88,6 @@ const CommonMenu = () => {
           .mmit-nav-container.scrolled {
             margin: 0; 
             border-radius: 0;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
           }
 
           /* Pure Flexbox Wrapping List */
