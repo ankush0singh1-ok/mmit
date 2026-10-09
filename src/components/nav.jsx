@@ -242,18 +242,18 @@ const CommonMenu = () => {
             <ul className="mmit-nav-list text-danger">
               
               <li className="mmit-nav-item">
-                <NavLink className="mmit-nav-link text-dark" to="/">Home</NavLink>
+                <NavLink className="mmit-nav-link text-primary" to="/">Home</NavLink>
               </li>
 
               <li className="mmit-nav-item">
-                <span className="mmit-nav-link text-dark">About ▼</span>
+                <span className="mmit-nav-link text-primary">About ▼</span>
                 <ul className="mmit-dropdown-menu">
                   <li><Link className="mmit-dropdown-item" to="/about">Vision & Mission</Link></li>
                 </ul>
               </li>
 
               <li className="mmit-nav-item">
-                <span className="mmit-nav-link text-dark">AICTE ▼</span>
+                <span className="mmit-nav-link text-primary">AICTE ▼</span>
                 <ul className="mmit-dropdown-menu">
                   <li><Link className="mmit-dropdown-item" to="/aicte/mandatory-disclosure">Mandatory Disclosure</Link></li>
                   <li><a className="mmit-dropdown-item" href="https://aicte.gov.in/">AICTE Feedback</a></li>
@@ -264,7 +264,7 @@ const CommonMenu = () => {
               </li>
 
               <li className="mmit-nav-item">
-                <span className="mmit-nav-link text-dark">Academics ▼</span>
+                <span className="mmit-nav-link text-primary">Academics ▼</span>
                 <ul className="mmit-dropdown-menu">
                   <li><Link className="mmit-dropdown-item" to="/academics/programme">Academics Programme</Link></li>
                   <li><Link className="mmit-dropdown-item" to="/academics/syllabus">Syllabus</Link></li>
@@ -274,7 +274,7 @@ const CommonMenu = () => {
               </li>
 
               <li className="mmit-nav-item">
-                <span className="mmit-nav-link text-dark">Departments ▼</span>
+                <span className="mmit-nav-link text-primary">Departments ▼</span>
                 <ul className="mmit-dropdown-menu">
                   <li><Link className="mmit-dropdown-item" to="/departments/electronics">Electronics Engineering</Link></li>
                   <li><Link className="mmit-dropdown-item" to="/departments/computer-science">Computer Science</Link></li>
@@ -283,7 +283,7 @@ const CommonMenu = () => {
               </li>
 
               <li className="mmit-nav-item">
-                <span className="mmit-nav-link text-dark">Login ▼</span>
+                <span className="mmit-nav-link text-primary">Login ▼</span>
                 <ul className="mmit-dropdown-menu">
                   <li><Link className="mmit-dropdown-item" to="/login-faculty">Faculty Login</Link></li>
                   <li><Link className="mmit-dropdown-item" to="/login-mmit-admin">Admin Login</Link></li>
@@ -291,7 +291,7 @@ const CommonMenu = () => {
               </li>
 
               <li className="mmit-nav-item">
-                <span className="mmit-nav-link text-dark">Placement ▼</span>
+                <span className="mmit-nav-link text-primary">Placement ▼</span>
                 <ul className="mmit-dropdown-menu">
                   <li><Link className="mmit-dropdown-item" to="/placement/placed-students">Placed Students Detail</Link></li>
                   <li><Link className="mmit-dropdown-item" to="/placement/mass-placed">Mass Placed Detail</Link></li>
@@ -299,11 +299,11 @@ const CommonMenu = () => {
               </li>
 
               <li className="mmit-nav-item">
-                <NavLink className="mmit-nav-link text-dark" to="/gallery">Gallery</NavLink>
+                <NavLink className="mmit-nav-link text-primary" to="/gallery">Gallery</NavLink>
               </li>
 
               <li className="mmit-nav-item">
-                <NavLink className="mmit-nav-link text-dark" to="/contact-us">Contact Us</NavLink>
+                <NavLink className="mmit-nav-link text-primary" to="/contact-us">Contact Us</NavLink>
               </li>
 
             </ul>
