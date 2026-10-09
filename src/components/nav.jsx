@@ -59,37 +59,24 @@ const CommonMenu = () => {
             line-height: 1.2;
           }
 
-          /* PERMANENT GLASSMORPHISM NAV CONTAINER */
+          /* FIXED SCROLLING TIRANGA BACKGROUND + BLUR */
           .mmit-nav-container {
             position: sticky;
-            top: 0;
+            top: 0; /* Ensures it locks to the top of the browser */
             z-index: 1050;
-            background-color: rgba(30, 33, 37, 0.75); /* Always transparent */
-            backdrop-filter: blur(16px); /* Always blurred */
-            -webkit-backdrop-filter: blur(16px);
             margin: 0 1rem 1rem 1rem;
             border-radius: 8px;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-          }
-
-          /* STICKY SCROLL STATE - Only changes margins to stretch full width */
-          .mmit-nav-container.scrolled {
-            margin: 0; 
-            border-radius: 0;
-          }
-
-          /* SCROLLING INDIAN FLAG ANIMATION */
-          .tiranga-bar {
-            height: 4px;
-            width: 100%;
-            /* Seamless gradient loop: Saffron -> White -> Green -> White -> Saffron */
-            background: linear-gradient(90deg, #FF9933, #FFFFFF, #138808, #FFFFFF, #FF9933);
+            
+            /* The Animated Flag Background */
+            background: linear-gradient(90deg, rgba(255, 153, 51, 0.8), rgba(255, 255, 255, 0.75), rgba(19, 136, 8, 0.8), rgba(255, 255, 255, 0.75), rgba(255, 153, 51, 0.8));
             background-size: 200% 100%;
-            animation: scrollTiranga 3s linear infinite;
-            border-top-left-radius: 8px;
-            border-top-right-radius: 8px;
-            transition: all 0.4s ease;
+            animation: scrollTiranga 6s linear infinite;
+            
+            /* The Glassmorphism Blur */
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
           }
 
           @keyframes scrollTiranga {
@@ -97,8 +84,11 @@ const CommonMenu = () => {
             100% { background-position: 0 0; }
           }
 
-          .mmit-nav-container.scrolled .tiranga-bar {
+          /* Stretches full width when it hits the top */
+          .mmit-nav-container.scrolled {
+            margin: 0; 
             border-radius: 0;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
           }
 
           /* Pure Flexbox Wrapping List */
@@ -124,17 +114,20 @@ const CommonMenu = () => {
           .mmit-nav-link {
             color: #ffffff;
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 700;
             font-size: 1rem;
             padding: 0.5rem 0;
             transition: color 0.2s ease-in-out;
             cursor: pointer;
             white-space: nowrap;
+            /* Text shadow is required so the white text is readable over the white stripe of the flag */
+            text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.85);
           }
 
           .mmit-nav-link:hover, 
           .mmit-nav-link.active {
-            color: #FF9933; 
+            color: #000080; /* Ashoka Chakra Navy for hover */
+            text-shadow: 0px 2px 5px rgba(255, 255, 255, 0.8);
           }
 
           /* Dropdowns */
@@ -144,11 +137,11 @@ const CommonMenu = () => {
             top: 100%;
             left: 50%;
             transform: translateX(-50%);
-            background-color: rgba(255, 255, 255, 0.98);
+            background-color: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
             min-width: 230px;
             border-radius: 6px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.25);
             z-index: 1000;
             padding: 0.5rem 0;
             list-style: none;
@@ -183,13 +176,13 @@ const CommonMenu = () => {
             color: #2b2e32;
             text-decoration: none;
             font-size: 0.9rem;
-            font-weight: 600;
+            font-weight: 700;
             transition: all 0.2s;
           }
 
           .mmit-dropdown-item:hover {
-            background-color: #f0fdf4;
-            color: #138808; 
+            background-color: #f8f9fa;
+            color: #FF9933; 
             padding-left: 1.5rem; 
           }
 
@@ -245,9 +238,6 @@ const CommonMenu = () => {
         </div>
 
         <div className={`mmit-nav-container ${isScrolled ? 'scrolled' : ''}`}>
-          
-          <div className="tiranga-bar"></div>
-          
           <div className="mmit-nav-content">
             <ul className="mmit-nav-list">
               
