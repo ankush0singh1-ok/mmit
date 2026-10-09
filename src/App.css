@@ -534,10 +534,6 @@ html, body, #root {
   overflow-x: visible !important;
 }
 
-/* If you need to stop horizontal scrolling, use 'clip' instead of 'hidden' */
-body {
-  overflow-x: clip !important; 
-}
 /* =========================================
    1. DESKTOP FIX: Prevent Links Overflowing
    ========================================= */
