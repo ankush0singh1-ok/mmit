@@ -242,18 +242,18 @@ const CommonMenu = () => {
             <ul className="mmit-nav-list text-danger">
               
               <li className="mmit-nav-item">
-                <NavLink className="mmit-nav-link" to="/">Home</NavLink>
+                <NavLink className="mmit-nav-link text-danger" to="/">Home</NavLink>
               </li>
 
               <li className="mmit-nav-item">
-                <span className="mmit-nav-link">About ▼</span>
+                <span className="mmit-nav-link text-danger">About ▼</span>
                 <ul className="mmit-dropdown-menu">
                   <li><Link className="mmit-dropdown-item" to="/about">Vision & Mission</Link></li>
                 </ul>
               </li>
 
               <li className="mmit-nav-item">
-                <span className="mmit-nav-link">AICTE ▼</span>
+                <span className="mmit-nav-link text-danger">AICTE ▼</span>
                 <ul className="mmit-dropdown-menu">
                   <li><Link className="mmit-dropdown-item" to="/aicte/mandatory-disclosure">Mandatory Disclosure</Link></li>
                   <li><a className="mmit-dropdown-item" href="https://aicte.gov.in/">AICTE Feedback</a></li>
@@ -264,7 +264,7 @@ const CommonMenu = () => {
               </li>
 
               <li className="mmit-nav-item">
-                <span className="mmit-nav-link">Academics ▼</span>
+                <span className="mmit-nav-link text-danger">Academics ▼</span>
                 <ul className="mmit-dropdown-menu">
                   <li><Link className="mmit-dropdown-item" to="/academics/programme">Academics Programme</Link></li>
                   <li><Link className="mmit-dropdown-item" to="/academics/syllabus">Syllabus</Link></li>
@@ -274,7 +274,7 @@ const CommonMenu = () => {
               </li>
 
               <li className="mmit-nav-item">
-                <span className="mmit-nav-link">Departments ▼</span>
+                <span className="mmit-nav-link text-danger">Departments ▼</span>
                 <ul className="mmit-dropdown-menu">
                   <li><Link className="mmit-dropdown-item" to="/departments/electronics">Electronics Engineering</Link></li>
                   <li><Link className="mmit-dropdown-item" to="/departments/computer-science">Computer Science</Link></li>
@@ -283,7 +283,7 @@ const CommonMenu = () => {
               </li>
 
               <li className="mmit-nav-item">
-                <span className="mmit-nav-link">Login ▼</span>
+                <span className="mmit-nav-link text-danger">Login ▼</span>
                 <ul className="mmit-dropdown-menu">
                   <li><Link className="mmit-dropdown-item" to="/login-faculty">Faculty Login</Link></li>
                   <li><Link className="mmit-dropdown-item" to="/login-mmit-admin">Admin Login</Link></li>
@@ -291,7 +291,7 @@ const CommonMenu = () => {
               </li>
 
               <li className="mmit-nav-item">
-                <span className="mmit-nav-link">Placement ▼</span>
+                <span className="mmit-nav-link text-danger">Placement ▼</span>
                 <ul className="mmit-dropdown-menu">
                   <li><Link className="mmit-dropdown-item" to="/placement/placed-students">Placed Students Detail</Link></li>
                   <li><Link className="mmit-dropdown-item" to="/placement/mass-placed">Mass Placed Detail</Link></li>
@@ -299,11 +299,11 @@ const CommonMenu = () => {
               </li>
 
               <li className="mmit-nav-item">
-                <NavLink className="mmit-nav-link" to="/gallery">Gallery</NavLink>
+                <NavLink className="mmit-nav-link text-danger" to="/gallery">Gallery</NavLink>
               </li>
 
               <li className="mmit-nav-item">
-                <NavLink className="mmit-nav-link" to="/contact-us">Contact Us</NavLink>
+                <NavLink className="mmit-nav-link text-danger" to="/contact-us">Contact Us</NavLink>
               </li>
 
             </ul>
