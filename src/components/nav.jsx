@@ -239,7 +239,7 @@ const CommonMenu = () => {
 
         <div className={`mmit-nav-container ${isScrolled ? 'scrolled' : ''}`}>
           <div className="mmit-nav-content">
-            <ul className="mmit-nav-list">
+            <ul className="mmit-nav-list text-danger">
               
               <li className="mmit-nav-item">
                 <NavLink className="mmit-nav-link" to="/">Home</NavLink>
