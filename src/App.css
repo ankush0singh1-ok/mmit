@@ -1,31 +1,22 @@
 /* =========================================
-   CRITICAL FIX: Position Sticky Scroll Lock
-   ========================================= */
-html, body, #root {
-  overflow: visible !important;
-  overflow-x: visible !important;
-  overflow-y: auto !important;
-  max-width: 100%;
-}
-
-/* =========================================
    Main Header Structure & Scroll Lock
    ========================================= */
+
 .flux-header-container {
-  position: sticky;  
-  top: 0;            
-  z-index: 9999;     
+  position: sticky;  /* This tells the browser to make it stick */
+  top: 0;            /* This tells it to stick exactly to the top edge */
+  z-index: 9999;     /* Keeps the header ON TOP of your images and sliders */
   width: 100%;
   transition: all 0.4s ease;
 }
-
 .flux-header-container.is-scrolled {
   padding-top: 15px; 
 }
 
 /* =========================================
-   Brand Area (Hides on Scroll)
+   Part 1: Brand Area (Hides on Scroll)
    ========================================= */
+
 .flux-top-bar, .brand-area {
   transition: all 0.4s ease;
   overflow: hidden;
@@ -38,10 +29,10 @@ html, body, #root {
   max-height: 0;
   padding-top: 0 !important;
   padding-bottom: 0 !important;
-  margin: 0 !important;
   opacity: 0;
 }
 
+/* Logo Styling */
 .flux-logo {
   width: 70px;
   height: 70px;
@@ -58,13 +49,15 @@ html, body, #root {
 }
 
 /* =========================================
-   The Floating Flux Navbar
+   Part 2: The Floating Flux Navbar
    ========================================= */
+
 .flux-navbar {
-  background: transparent !important;
+  background: transparent !important; /* Must be transparent so background layer shows */
   padding: 15px 0 !important;
-  position: relative;
+  position: sticky;
   transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  /* NO overflow: hidden here, so dropdowns work! */
 }
 
 .is-scrolled .flux-navbar {
@@ -72,36 +65,47 @@ html, body, #root {
   transform: translateY(-5px);
 }
 
+/* Ensure navbar content stays above the background */
 .z-index-2 {
-  position: relative;
+  position: sticky;
   z-index: 2;
 }
 
 /* =========================================
    The Dedicated Background Layer
    ========================================= */
+
 .flux-navbar-background {
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
+  
+  /* Default State Glass Effect */
   background: rgba(20, 20, 25, 0.8); 
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  
   border-radius: 12px;
   transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   z-index: 0;
+  
+  /* Safe to hide overflow here to contain the animation */
   overflow: hidden; 
 }
 
+/* Scroll Lock State for the Background */
 .is-scrolled .flux-navbar-background {
   background: rgba(65, 60, 56, 0.75);
   box-shadow: 0 15px 40px rgba(83, 79, 74, 0.3);
-  border-radius: 50px; 
+  border-radius: 50px; /* Transforms into a full rounded pill */
   border: 1px solid rgba(255, 255, 255, 0.4);
 }
 
-/* Indian Flag Reflection Animation */
+/* =========================================
+   Indian Flag Reflection Animation
+   ========================================= */
+
 .flux-navbar-background::after {
   content: '';
   position: absolute;
@@ -109,14 +113,17 @@ html, body, #root {
   left: -150%;
   width: 65%;
   height: 100%;
+  
+  /* Saffron, White, and Green Gradient Reflection */
   background: linear-gradient(
     to right,
     rgba(255, 255, 255, 0) 0%,
-    rgba(255, 153, 51, 0.6) 35%,   
-    rgba(255, 255, 255, 0.8) 50%,  
-    rgba(19, 136, 8, 0.6) 65%,     
+    rgba(255, 153, 51, 0.6) 35%,   /* Saffron */
+    rgba(255, 255, 255, 0.8) 50%,  /* White */
+    rgba(19, 136, 8, 0.6) 65%,     /* Green */
     rgba(255, 255, 255, 0) 100%
   );
+  
   transform: skewX(-25deg);
   animation: indian-flag-shimmer 13s infinite;
   pointer-events: none;
@@ -131,6 +138,7 @@ html, body, #root {
 /* =========================================
    Nav Links & Interactions
    ========================================= */
+
 .flux-link {
   color: rgba(255, 255, 255, 0.9) !important;
   font-weight: 300;
@@ -151,8 +159,9 @@ html, body, #root {
 /* =========================================
    Hover Dropdowns (Desktop)
    ========================================= */
+
 @media all and (min-width: 992px) {
-  .flux-nav-item:hover .dropdown-menu {
+  .navbar .nav-item.dropdown:hover .dropdown-menu {
     display: block;
     opacity: 1;
     visibility: visible;
@@ -197,71 +206,24 @@ html, body, #root {
   color: #fff;
   padding-left: 22px; 
 }
-
-/* =========================================
-   1. DESKTOP FIX: Prevent Links Overflowing
-   ========================================= */
-@media (min-width: 992px) and (max-width: 1300px) {
-  .flux-navbar .navbar-nav {
-    gap: 2px !important; 
-  }
-  .flux-link {
-    font-size: 13px !important; 
-    padding: 8px 6px !important; 
-    letter-spacing: 0px !important;
-  }
-}
-
-/* =========================================
-   2. MOBILE FIX: Fix the "White Box" Dropdowns
-   ========================================= */
-@media (max-width: 991px) {
-  .flux-navbar .dropdown-menu {
-    background-color: rgba(0, 0, 0, 0.15) !important;
-    border: 1px solid rgba(255, 255, 255, 0.05) !important;
-    box-shadow: inset 0 2px 5px rgba(0,0,0,0.1) !important;
-    margin-top: 5px;
-    padding: 10px;
-    position: static !important; 
-  }
-
-  .flux-navbar .dropdown-item {
-    color: rgba(255, 255, 255, 0.85) !important;
-    font-size: 14px;
-    padding: 10px 15px;
-  }
-
-  .flux-navbar .dropdown-item:hover {
-    background-color: rgba(255, 255, 255, 0.2) !important;
-    color: #ffffff !important;
-  }
-  
-  .flux-navbar {
-    background: rgba(45, 45, 50, 0.98) !important;
-    border-radius: 12px;
-    padding: 15px !important;
-  }
-  
-  .flux-navbar-background {
-    display: none !important; 
-  }
-}
-
 /* =========================================
    Hero Section Layout
    ========================================= */
+
+/* -- Image Slider Styling -- */
 .custom-carousel {
-  border: 5px solid #ffffff; 
+  border: 5px solid #ffffff; /* Thick white border from the image */
   border-radius: 10px;
   background-color: #f8f9fa;
 }
 
 .hero-carousel-img {
-  height: 450px; 
+  height: 450px; /* Adjust this height as needed */
   object-fit: cover;
   object-position: center;
 }
 
+/* Custom styling for the slider arrows to make them pop more */
 .custom-carousel .carousel-control-prev-icon,
 .custom-carousel .carousel-control-next-icon {
   background-color: rgba(0, 0, 0, 0.5);
@@ -269,25 +231,25 @@ html, body, #root {
   padding: 20px;
 }
 
-/* =========================================
-   Dignitary Sidebar
-   ========================================= */
+/* -- Dignitary Sidebar Styling -- */
 .dignitary-sidebar {
-  background-color: #f6f7fb; 
+  background-color: #f6f7fb; /* Light grayish-blue background */
   border: 1px solid #e0e0e0;
   padding: 10px 15px;
 }
 
 .dignitary-card {
   padding: 15px 10px;
-  border-bottom: 1px solid #e2e5ec; 
-  flex: 1; 
+  border-bottom: 1px solid #e2e5ec; /* Subtle divider between profiles */
+  flex: 1; /* Helps distribute them evenly */
 }
 
+/* Remove the bottom border on the last profile */
 .dignitary-card:last-child {
   border-bottom: none;
 }
 
+/* Circular Images */
 .dignitary-avatar-wrapper {
   width: 70px;
   height: 70px;
@@ -301,32 +263,39 @@ html, body, #root {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: top; 
+  object-position: top; /* Ensures faces aren't cut off */
 }
 
+/* Typography matching the screenshot */
 .dignitary-name {
-  color: #1a237e; 
+  color: #1a237e; /* Dark Blue */
   font-size: 15px;
   font-weight: 700;
   text-align: center;
 }
 
 .dignitary-title {
-  color: #c62828; 
+  color: #c62828; /* Deep Red/Orange */
   font-size: 13px;
   font-weight: 500;
   text-align: center;
   line-height: 1.3;
 }
-
 /* =========================================
-   Mission, Vision & News
+   Mission, Vision & News (Light Flux Theme)
    ========================================= */
+
+/* Clean white background for the whole section */
 .flux-section-bg {
   background-color: #ffffff; 
 }
 
+/* =========================================
+   Flux Glass Cards (Mission & Vision)
+   ========================================= */
+
 .flux-card {
+  /* Frosted White Glass */
   background: rgba(255, 255, 255, 0.9);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
@@ -334,6 +303,7 @@ html, body, #root {
   border-radius: 16px;
   position: relative;
   overflow: hidden; 
+  /* Softer shadows for light mode */
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -343,6 +313,7 @@ html, body, #root {
   box-shadow: 0 15px 40px rgba(240, 133, 25, 0.15);
 }
 
+/* The Animated Glowing Border (Kept subtle for white background) */
 .flux-card::before {
   content: '';
   position: absolute;
@@ -352,6 +323,11 @@ html, body, #root {
   border-radius: 18px;
   transition: all 0.5s ease;
   animation: pulseGlow 4s infinite alternate;
+}
+
+.z-index-2 {
+  position: relative;
+  z-index: 2;
 }
 
 .flux-icon-box {
@@ -367,7 +343,12 @@ html, body, #root {
   100% { opacity: 1; }
 }
 
+/* =========================================
+   Flux News Container (Light Mode)
+   ========================================= */
+
 .flux-news-container {
+  /* Frosted White Glass */
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
@@ -376,6 +357,7 @@ html, body, #root {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
 }
 
+/* Glowing border for the news box */
 .flux-news-container::before {
   content: '';
   position: absolute;
@@ -420,6 +402,7 @@ html, body, #root {
   color: #f08519 !important;
 }
 
+/* Fade out effect blending into WHITE instead of black */
 .flux-news-fade-bottom {
   position: absolute;
   bottom: 0;
@@ -430,10 +413,13 @@ html, body, #root {
   pointer-events: none;
   border-radius: 0 0 16px 16px;
 }
-
+html,body {
+  max-width: 100%;
+}
 /* =========================================
    Principal Message Section
    ========================================= */
+
 .principal-photo-wrapper {
   padding: 10px;
   z-index: 2;
@@ -441,18 +427,19 @@ html, body, #root {
 
 .principal-photo {
   width: 100%;
-  max-width: 340px; 
+  max-width: 340px; /* Controls how large the photo can get */
   height: auto;
   object-fit: cover;
-  border: 5px solid rgb(184, 109, 109); 
+  border: 5px solid rgb(184, 109, 109); /* Gives it a clean photo frame look */
   position: relative;
   z-index: 2;
 }
 
+/* The Cool Flux Offset Background behind the photo */
 .photo-accent-bg {
   position: absolute;
   top: 25px;
-  left: 25px;
+  left: 25x;
   right: 0px;
   bottom: 0px;
   background: linear-gradient(135deg, #f08519 0%, #ffc107 100%);
@@ -461,35 +448,35 @@ html, body, #root {
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
+/* Animation on Hover */
 .principal-photo-wrapper:hover .photo-accent-bg {
   transform: translate(-15px, -15px);
 }
 
+/* Soften the border line above the signature */
 .principal-signature {
   border-color: rgba(0, 0, 0, 0.08) !important;
 }
-
-/* =========================================
-   Features & Facilities Styles
-   ========================================= */
+/* --- Features & Facilities Styles --- */
 .facility-card {
   background-color: #ffffff;
-  border: 1.5px solid #f39c12; 
-  border-radius: 12px;         
+  border: 1.5px solid #f39c12; /* Distinctive orange border */
+  border-radius: 12px;         /* Rounded corners */
   transition: all 0.3s ease-in-out;
   min-height: 140px;
 }
 
+/* Optional hover effect to make the grid feel interactive */
 .facility-card:hover {
   box-shadow: 0 6px 20px rgba(243, 156, 18, 0.15);
   transform: translateY(-4px);
-  background-color: #fffaf0; 
+  background-color: #fffaf0; /* Very slight orange tint on hover */
 }
 
 .facility-icon {
   width: 50px;
   height: 50px;
-  color: #f39c12; 
+  color: #f39c12; /* Matches the border color */
 }
 
 .facility-icon svg {
@@ -497,17 +484,14 @@ html, body, #root {
   height: 100%;
   fill: currentColor;
 }
-
-/* =========================================
-   Footer Styles
-   ========================================= */
+/* --- Footer Styles --- */
 .footer-bg {
-  background-color: #1a1a1a; 
+  background-color: #1a1a1a; /* Very dark gray, almost black */
   color: #ffffff;
 }
 
 .footer-heading {
-  color: #f39c12; 
+  color: #f39c12; /* Matches the orange headings */
   font-weight: 600;
   font-size: 1.1rem;
 }
@@ -517,7 +501,7 @@ html, body, #root {
 }
 
 .footer-list a {
-  color: #e0e0e0; 
+  color: #e0e0e0; /* Light gray text for links */
   text-decoration: none;
   transition: color 0.2s ease-in-out;
   display: flex;
@@ -525,142 +509,82 @@ html, body, #root {
 }
 
 .footer-list a:hover {
-  color: #f39c12; 
+  color: #f39c12; /* Turns orange on hover */
 }
 
 .footer-icon {
   width: 16px;
   height: 16px;
-  color: #f39c12; 
+  color: #f39c12; /* Orange icons */
   flex-shrink: 0;
 }
 
+/* Specific map iframe border to keep it contained nicely */
 .map-container {
   border: 1px solid #333;
 }
 
+/* Subtle separator lines for bottom section */
 .border-secondary {
   border-color: #333 !important;
-}
-/* 1. Make the entire header container stick to the top of the screen */
-.flux-header-container {
-  position: sticky;
-  top: 0;
-  z-index: 1030; /* High enough to stay above other page content */
-  background-color: #ffffff; /* Ensures the background isn't transparent when scrolling */
-  transition: all 0.3s ease-in-out;
-  width: 100%;
-}
-
-/* 2. Hide the Top Info Bar and Brand Area when the user scrolls down */
-.flux-header-container.is-scrolled .flux-top-bar,
-.flux-header-container.is-scrolled .brand-area {
-  display: none !important;
-}
-
-/* Optional: Add a slight shadow to the navbar when scrolled for a polished look */
-.flux-header-container.is-scrolled {
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
 
 
 /* =========================================
-   FLUX HEADER & NAVIGATION STYLES
-========================================= */
+   1. DESKTOP FIX: Prevent Links Overflowing
+   ========================================= */
 
-/* 1. Main Header Container (Sticky) */
-.flux-header-container {
-  position: sticky;
-  top: 0;
-  width: 100%;
-  z-index: 1050;
-  background-color: #ffffff;
-  transition: background-color 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
-}
-
-/* 2. Top Bar and Brand Area (Smooth Collapse) */
-.flux-top-bar,
-.brand-area {
-  max-height: 150px; /* High enough to contain the content */
-  opacity: 1;
-  overflow: hidden;
-  transition: max-height 0.5s ease, opacity 0.4s ease, padding 0.5s ease;
-}
-
-/* When scrolled down, shrink the top elements to 0 */
-.flux-header-container.is-scrolled .flux-top-bar,
-.flux-header-container.is-scrolled .brand-area {
-  max-height: 0;
-  opacity: 0;
-  padding-top: 0 !important;
-  padding-bottom: 0 !important;
-  margin: 0 !important;
-}
-
-/* When scrolled, make the parent background transparent so glassmorphism shines */
-.flux-header-container.is-scrolled {
-  background-color: transparent; 
-}
-
-/* 3. Glassmorphism Navbar */
-.flux-nav-wrapper {
-  position: relative;
-  width: 100%;
-}
-
-.flux-navbar {
-  /* Semi-transparent background for glass effect */
-  background: rgba(255, 255, 255, 0.75); 
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px); /* Safari support */
-  border-top: 1px solid rgba(255, 255, 255, 0.5);
-  transition: all 0.4s ease;
-  padding: 10px 0;
-}
-
-/* Give the nav a shadow when sticky */
-.flux-header-container.is-scrolled .flux-navbar {
-  background: rgba(255, 255, 255, 0.85);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
-}
-
-/* Nav Links Base Styling */
-.flux-link {
-  color: #222 !important;
-  transition: color 0.3s ease;
-  font-size: 15px;
-}
-
-.flux-link:hover,
-.flux-link.active {
-  color: #FF9933 !important; /* Saffron hover color */
-}
-
-/* Glassmorphism Dropdowns */
-.glass-dropdown {
-  background: rgba(255, 255, 255, 0.9);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-}
-
-/* 4. Animated Scrolling Flag Effect */
-.flag-scroll-bar {
-  height: 4px;
-  width: 100%;
-  /* Saffron, White, Green repeated for seamless animation */
-  background: linear-gradient(90deg, #FF9933 0%, #FFFFFF 25%, #138808 50%, #FF9933 75%, #FFFFFF 100%);
-  background-size: 200% 100%;
-  animation: flagScroll 4s linear infinite;
-}
-
-@keyframes flagScroll {
-  0% {
-    background-position: 100% 0;
+/* When the screen is a laptop/tablet (992px to 1300px), shrink the links slightly so all 9 fit inside the pill */
+@media (min-width: 992px) and (max-width: 1300px) {
+  .flux-navbar .navbar-nav {
+    gap: 2px !important; /* Reduce space between links */
   }
-  100% {
-    background-position: 0 0;
+  
+  .flux-link {
+    font-size: 13px !important; /* Slightly smaller text */
+    padding: 8px 6px !important; /* Less padding */
+    letter-spacing: 0px !important;
+  }
+}
+
+/* =========================================
+   2. MOBILE FIX: Fix the "White Box" Dropdowns
+   ========================================= */
+
+/* Apply these fixes only when the hamburger menu is active (< 992px) */
+@media (max-width: 991px) {
+  
+  /* Remove the giant white box and make it blend into the mobile menu */
+  .flux-navbar .dropdown-menu {
+    background-color: rgba(0, 0, 0, 0.15) !important;
+    border: 1px solid rgba(255, 255, 255, 0.05) !important;
+    box-shadow: inset 0 2px 5px rgba(0,0,0,0.1) !important;
+    margin-top: 5px;
+    padding: 10px;
+    position: static !important; /* Forces the dropdown to push other links down, rather than floating over them */
+  }
+
+  /* Fix the dropdown text color so it is visible */
+  .flux-navbar .dropdown-item {
+    color: rgba(255, 255, 255, 0.85) !important;
+    font-size: 14px;
+    padding: 10px 15px;
+  }
+
+  .flux-navbar .dropdown-item:hover {
+    background-color: rgba(255, 255, 255, 0.2) !important;
+    color: #ffffff !important;
+  }
+  
+  /* Simplify the mobile background to prevent accordion height bugs */
+  .flux-navbar {
+    background: rgba(45, 45, 50, 0.98) !important;
+    border-radius: 12px;
+    padding: 15px !important;
+  }
+  
+  /* Hide the complex desktop sweeping animation layer on mobile to keep the menu clean and scrollable */
+  .flux-navbar-background {
+    display: none !important; 
   }
 }
