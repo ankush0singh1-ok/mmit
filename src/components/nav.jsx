@@ -120,7 +120,6 @@ const CommonMenu = () => {
             cursor: pointer;
             white-space: nowrap;
             /* Text shadow is required so the white text is readable over the white stripe of the flag */
-            text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.85);
           }
 
           .mmit-nav-link:hover, 
