@@ -82,7 +82,7 @@ const CommonMenu = () => {
 
             {/* Menu Container */}
             <div className={`justify-content-center w-100 ${isOpen ? 'd-block mt-4' : 'd-none d-lg-flex'}`} id="fluxNav">
-              
+            
               {/* Main Nav Links */}
               <ul className="navbar-nav align-items-lg-center col-sm-12 gap-2 gap-xl-4 flex-column flex-lg-row">
                 <li className="nav-item me-4">
