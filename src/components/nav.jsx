@@ -5,7 +5,6 @@ import '../App.css';
 const CommonMenu = () => {
   const [isScrolled, setIsScrolled] = useState(false);
 
-  // Detects when the user scrolls past the top logo area (approx 120px)
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 120);
@@ -18,7 +17,6 @@ const CommonMenu = () => {
     <>
       <style>
         {`
-          /* Custom Flexbox Header */
           .mmit-header {
             width: 100%;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -61,40 +59,46 @@ const CommonMenu = () => {
             line-height: 1.2;
           }
 
-          /* Sticky Navigation Box */
+          /* PERMANENT GLASSMORPHISM NAV CONTAINER */
           .mmit-nav-container {
             position: sticky;
             top: 0;
             z-index: 1050;
-            background-color: rgba(43, 46, 50, 0.98);
+            background-color: rgba(30, 33, 37, 0.75); /* Always transparent */
+            backdrop-filter: blur(16px); /* Always blurred */
+            -webkit-backdrop-filter: blur(16px);
             margin: 0 1rem 1rem 1rem;
             border-radius: 8px;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
           }
 
-          /* STICKY SCROLL STATE - Glassmorphism Blur Effect */
+          /* STICKY SCROLL STATE - Only changes margins to stretch full width */
           .mmit-nav-container.scrolled {
-            margin: 0; /* Stretches to edge */
+            margin: 0; 
             border-radius: 0;
-            background-color: rgba(30, 33, 37, 0.75); /* More transparent for blur */
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
           }
 
-          /* Indian Flag Gradient Line */
+          /* SCROLLING INDIAN FLAG ANIMATION */
           .tiranga-bar {
             height: 4px;
             width: 100%;
-            background: linear-gradient(90deg, #FF9933 0%, #FFFFFF 50%, #138808 100%);
+            /* Seamless gradient loop: Saffron -> White -> Green -> White -> Saffron */
+            background: linear-gradient(90deg, #FF9933, #FFFFFF, #138808, #FFFFFF, #FF9933);
+            background-size: 200% 100%;
+            animation: scrollTiranga 3s linear infinite;
             border-top-left-radius: 8px;
             border-top-right-radius: 8px;
             transition: all 0.4s ease;
           }
 
+          @keyframes scrollTiranga {
+            0% { background-position: 200% 0; }
+            100% { background-position: 0 0; }
+          }
+
           .mmit-nav-container.scrolled .tiranga-bar {
-            border-radius: 0; /* Removes curves when snapped to top */
+            border-radius: 0;
           }
 
           /* Pure Flexbox Wrapping List */
@@ -128,13 +132,12 @@ const CommonMenu = () => {
             white-space: nowrap;
           }
 
-          /* Hover Saffron Theme */
           .mmit-nav-link:hover, 
           .mmit-nav-link.active {
             color: #FF9933; 
           }
 
-          /* Pure CSS Hover Dropdowns */
+          /* Dropdowns */
           .mmit-dropdown-menu {
             display: none;
             position: absolute;
@@ -150,7 +153,7 @@ const CommonMenu = () => {
             padding: 0.5rem 0;
             list-style: none;
             margin-top: 0.5rem;
-            border-top: 3px solid #000080; /* Ashoka Chakra Navy Accent */
+            border-top: 3px solid #000080; 
           }
 
           .mmit-dropdown-menu::before {
@@ -184,14 +187,12 @@ const CommonMenu = () => {
             transition: all 0.2s;
           }
 
-          /* Hover Green Theme */
           .mmit-dropdown-item:hover {
             background-color: #f0fdf4;
             color: #138808; 
-            padding-left: 1.5rem; /* Slight indent on hover */
+            padding-left: 1.5rem; 
           }
 
-          /* Mobile Adjustments */
           @media (max-width: 768px) {
             .mmit-brand-area {
               justify-content: center;
@@ -212,7 +213,6 @@ const CommonMenu = () => {
 
       <header className="mmit-header">
         
-        {/* Top Info Bar */}
         <div className="mmit-top-bar">
           <div style={{ display: 'flex', gap: '15px', alignItems: 'center' }}>
             <span>📍 Hariharpur, Gorakhpur</span>
@@ -228,7 +228,6 @@ const CommonMenu = () => {
           </div>
         </div>
 
-        {/* Brand Area */}
         <div className="mmit-brand-area">
           <Link className="mmit-logo-group" to="/">
             <img src="./images/logo-removebg-preview-120x117.png" alt="MMIT Logo" style={{ width: '65px', height: 'auto' }} />
@@ -238,7 +237,6 @@ const CommonMenu = () => {
             </div>
           </Link>
 
-          {/* Govt Badges */}
           <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }} className="d-none d-lg-flex">
             <img src="./images/digital-india.png" alt="Digital India" style={{ height: '40px' }} />
             <div style={{ width: '2px', height: '30px', backgroundColor: '#e0e0e0' }}></div>
@@ -246,9 +244,8 @@ const CommonMenu = () => {
           </div>
         </div>
 
-        {/* The Sticky Navigation Box */}
         <div className={`mmit-nav-container ${isScrolled ? 'scrolled' : ''}`}>
-          {/* Saffron, White, Green Line */}
+          
           <div className="tiranga-bar"></div>
           
           <div className="mmit-nav-content">
