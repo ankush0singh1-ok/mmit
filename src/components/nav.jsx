@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import '../App.css';
 import IndianClock from './indianclock';
-
+import { Typewriter } from 'react-simple-typewriter';
 const CommonMenu = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
@@ -33,9 +33,6 @@ const CommonMenu = () => {
               </a>
             </div>
             <div><IndianClock/></div>
-            <div className="d-flex gap-2">
-              <button className="btn btn-warning btn-sm py-0 px-3 fw-bold rounded-pill" style={{ fontSize: '10px' }}>GRIEVANCE</button>
-            </div>
           </div>
         </div>
       </div>
@@ -46,9 +43,28 @@ const CommonMenu = () => {
           <div className="flux-logo rounded-circle d-flex align-items-center justify-content-center">
             <img src="./images/logo-removebg-preview-120x117.png" alt="MMIT Logo" className='logo' />
           </div>
+
           <span className="brand-text text-dark fw-bold ms-2" style={{ fontSize: '22px', lineHeight: '1.2' }}>
-            MAHAMAYA POLYTECHNIC <br />
-            <span className="text-warning" style={{ fontSize: '16px' }}> OF IT HARIHARPUR</span>
+             <Typewriter
+          words={['MAHAMAYA','POLYTECHNIC']}
+          loop={true}
+          cursor
+          cursorStyle="_"
+          typeSpeed={70}
+          deleteSpeed={50}
+          delaySpeed={1000}
+        />
+            <br />
+            <span className="text-warning" style={{ fontSize: '16px' }}>
+               <Typewriter
+          words={['OF', 'I.T.', 'HARIHARPUR', 'GORAKHPUR']}
+          loop={true}
+          cursor
+          cursorStyle="_"
+          typeSpeed={70}
+          deleteSpeed={50}
+          delaySpeed={1000}
+        /></span>
           </span>
         </Link>
 

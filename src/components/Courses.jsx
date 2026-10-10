@@ -11,7 +11,7 @@ const Courses = () => {
             
             {/* RIGHT COLUMN: Dedicated Space for Course/Campus Photo */}
             <div className="col-12 col-lg-5 text-center">
-              <div className="image-photo-wrapper position-relative d-inline-block">
+              {/* <div className="image-photo-wrapper position-relative d-inline-block">
                 <img
                   src="./images/course-photo.jpg" 
                   alt="Students learning in lab"
@@ -19,7 +19,7 @@ const Courses = () => {
                   onError={(e) => { e.target.src = 'https://via.placeholder.com/450x450?text=Computer+Lab+Photo' }}
                 />
                 <div className="photo-accent-bg rounded-4"></div>
-              </div>
+              </div> */}
             </div>
 
             {/* LEFT COLUMN: The Course Details */}
