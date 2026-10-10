@@ -49,7 +49,6 @@ const CommonMenu = () => {
           words={['MAHAMAYA POLYTECHNIC']}
           loop={1}
           cursor
-          cursorStyle="_"
           typeSpeed={70}
           deleteSpeed={50}
           delaySpeed={1000}
@@ -60,7 +59,6 @@ const CommonMenu = () => {
           words={['OF I.T. HARIHARPUR GORAKHPUR']}
           loop={1}
           cursor
-          cursorStyle="_"
           typeSpeed={70}
           deleteSpeed={50}
           delaySpeed={1000}
