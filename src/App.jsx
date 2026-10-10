@@ -28,7 +28,6 @@ import ContactUs from './components/contactus.jsx';
 import Gallery from './components/gallery.jsx';
 
 const App = () => {
-  window.alert("Welcome to MMITH Gorakhpur ");
   return (
     <>
       <CommonMenu />

@@ -47,7 +47,7 @@ const CommonMenu = () => {
           <span className="brand-text text-dark fw-bold ms-2" style={{ fontSize: '22px', lineHeight: '1.2' }}>
              <Typewriter
           words={['MAHAMAYA POLYTECHNIC']}
-          loop={true}
+          loop={1}
           cursor
           cursorStyle="_"
           typeSpeed={70}
@@ -58,7 +58,7 @@ const CommonMenu = () => {
             <span className="text-warning" style={{ fontSize: '16px' }}>
                <Typewriter
           words={['OF I.T. HARIHARPUR GORAKHPUR']}
-          loop={true}
+          loop={1}
           cursor
           cursorStyle="_"
           typeSpeed={70}
