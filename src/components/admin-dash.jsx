@@ -151,42 +151,51 @@ const AdminDashboard = () => {
     setPreviewUrl(URL.createObjectURL(file));
   };
 
-  // 9. Dual-Mode Gallery Submit
+ // 9. Dual-Mode Gallery Submit (Cloudinary Intercept)
   const handleGallerySubmit = async (e) => {
     e.preventDefault();
+    const title = e.target.title.value;
+    const category = e.target.category.value;
+    let finalImageUrl = "";
 
     try {
-      let response;
-      const title = e.target.title.value;
-      const category = e.target.category.value;
-
       if (uploadMethod === 'file') {
         if (!selectedFile) return alert("Please select or drag an image first!");
         
-        const submitData = new FormData();
-        submitData.append('title', title);
-        submitData.append('category', category);
-        submitData.append('image', selectedFile);
-
-        // FormData request (No headers needed)
-        response = await fetch('https://api-pl5i.onrender.com/api/gallery', {
+        // 1. Upload directly to Cloudinary from the frontend
+        const cloudData = new FormData();
+        cloudData.append('file', selectedFile);
+        // Note: You must create a free Cloudinary account to get these two values:
+        cloudData.append('upload_preset', 'galleries'); 
+        
+        const cloudRes = await fetch('https://api.cloudinary.com/v1_1/fcczl5dz/image/upload', {
           method: 'POST',
-          body: submitData 
+          body: cloudData
         });
+        
+        const cloudResponseData = await cloudRes.json();
+        
+        if (!cloudResponseData.secure_url) {
+          throw new Error("Failed to generate permanent cloud link.");
+        }
+        
+        finalImageUrl = cloudResponseData.secure_url; // The permanent URL
+
       } else {
-        const imageUrl = e.target.imageUrl.value;
-        if (!imageUrl) return alert("Please enter an image URL!");
-
-        // JSON request (Headers required)
-        response = await fetch('https://api-pl5i.onrender.com/api/gallery', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ title, category, imageUrl })
-        });
+        // 2. Or use the pasted URL (Ensure it ends in .jpg or .png!)
+        finalImageUrl = e.target.imageUrl.value;
+        if (!finalImageUrl) return alert("Please enter an image URL!");
       }
+
+      // 3. Send the permanent URL to your Render backend via JSON
+      const response = await fetch('https://api-pl5i.onrender.com/api/gallery', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ title, category, imageUrl: finalImageUrl })
+      });
       
       if (response.ok) {
-        alert('Image successfully uploaded to gallery!');
+        alert('Image successfully uploaded to the MMIT gallery!');
         e.target.reset();
         setSelectedFile(null);
         setPreviewUrl(null);
@@ -196,7 +205,7 @@ const AdminDashboard = () => {
       }
     } catch (error) {
       console.error("Network error:", error);
-      alert('Upload failed due to a network error.');
+      alert('Upload failed. Check your network or cloud credentials.');
     }
   };
 
