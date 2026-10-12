@@ -26,14 +26,14 @@ const Gallery = () => {
     fetchGallery();
   }, []);
 
-  const filteredImages = filter === 'All' 
-    ? images 
+  const filteredImages = filter === 'All'
+    ? images
     : images.filter(img => img.category === filter);
 
   return (
     <section className="py-5 flux-section-bg min-vh-100">
       <div className="container px-4 position-relative z-index-2">
-        
+
         {/* Page Header */}
         <div className="text-center mb-5">
           <h1 className="fw-bold text-dark custom-heading">
@@ -50,9 +50,8 @@ const Gallery = () => {
             <button
               key={cat}
               onClick={() => setFilter(cat)}
-              className={`btn fw-bold rounded-pill px-4 py-2 transition-hover ${
-                filter === cat ? 'btn-warning shadow-sm' : 'btn-outline-dark bg-white'
-              }`}
+              className={`btn fw-bold rounded-pill px-4 py-2 transition-hover ${filter === cat ? 'btn-warning shadow-sm' : 'btn-outline-dark bg-white'
+                }`}
             >
               {cat}
             </button>
@@ -80,11 +79,15 @@ const Gallery = () => {
               <div key={img._id} className="col-12 col-md-6 col-lg-4">
                 <div className="flux-card h-100 overflow-hidden shadow-sm transition-hover border-0">
                   <div className="position-relative bg-dark" style={{ height: '250px' }}>
-                    <img 
-                      src={img.imageUrl} 
-                      alt={img.title} 
+                    <img
+                      src={img.imageUrl}
+                      alt={img.title}
                       className="w-100 h-100 object-fit-cover"
                       loading="lazy"
+                      onError={(e) => {
+                        e.target.onerror = null;
+                        e.target.src = 'https://via.placeholder.com/400x250?text=Image+Not+Available';
+                      }}
                     />
                     <span className="badge bg-dark text-warning position-absolute top-0 end-0 m-3 shadow-sm border border-secondary">
                       {img.category}

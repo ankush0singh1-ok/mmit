@@ -27,9 +27,8 @@ const CommonMenu = () => {
           <div className="d-flex justify-content-between align-items-center py-2 text-dark" style={{ fontSize: '12px' }}>
             <div className="d-flex gap-3">
               <span>📍 Hariharpur, Gorakhpur</span>
-              <span className="d-none d-md-inline">|</span>
-              <a href="mailto:mmitgorakhpur@gmail.com" className="text-dark text-decoration-none flux-glow-link">
-                mmitgorakhpur@gmail.com
+              <a href="mailto:mmithgorakhpur@gmail.com" className="text-dark text-decoration-none flux-glow-link">
+                mmithgorakhpur@gmail.com
               </a>
             </div>
             <div><IndianClock/></div>
