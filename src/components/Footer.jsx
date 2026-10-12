@@ -107,7 +107,7 @@ const Footer = () => {
         {/* Developer Credit */}
         <div className="developer-credit text-center py-3 mb-3 border-top border-bottom border-secondary">
           <p className="m-0 text-warning fw-bold" style={{ letterSpacing: '0.5px' }}>
-           This site is developed by <b className=" text-white px-1 rounded"> Ankush Singh </b> and <b className=" text-white px-1 rounded"> Tushar Kapoor </b>, Computer Science II<sup>nd</sup> year students <br/>
+           This site is developed by <b className=" text-white px-1 rounded"><a href="https://ankush-nine.vercel.app" className='text-white-50 text-decoration-none'> Ankush Singh </a></b>, Computer Science II<sup>nd</sup> year students <br/>
            This Site is under Development
           </p>
         </div>
