@@ -47,7 +47,7 @@ const CommonMenu = () => {
              <Typewriter
           words={['MAHAMAYA POLYTECHNIC']}
           loop={1}
-          cursor
+          cursor=''
           typeSpeed={70}
           deleteSpeed={50}
           delaySpeed={1000}
@@ -57,7 +57,7 @@ const CommonMenu = () => {
                <Typewriter
           words={['OF I.T. HARIHARPUR GORAKHPUR']}
           loop={1}
-          cursor
+          cursor=''
           typeSpeed={70}
           deleteSpeed={50}
           delaySpeed={1000}
