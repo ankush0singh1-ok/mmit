@@ -112,16 +112,16 @@ const CommonMenu = () => {
                 
                 {/* 🟢 ALWAYS VISIBLE ON ALL SCREENS */}
                 <li className="nav-item me-xl-2">
-                  <NavLink className="nav-link flux-link fw-medium" to="/" onClick={closeMenu}>Home</NavLink>
+                  <NavLink className="nav-link flux-link fw-medium ms-5" to="/" onClick={closeMenu}>Home</NavLink>
                 </li>
                 <li className="nav-item mx-lg-1 dropdown flux-nav-item">
-                  <NavLink className="nav-link flux-link fw-medium dropdown-toggle" to="#" data-bs-toggle="dropdown">About</NavLink>
+                  <NavLink className="nav-link flux-link fw-medium ms-5 dropdown-toggle ms-5" to="#" data-bs-toggle="dropdown">About</NavLink>
                   <ul className="dropdown-menu flux-dropdown">
                     <li><Link className="dropdown-item" to="/about" onClick={closeMenu}>Vision & Mission</Link></li>
                   </ul>
                 </li>
                 <li className="nav-item mx-lg-1 dropdown flux-nav-item">
-                  <NavLink className="nav-link flux-link fw-medium dropdown-toggle" to="#" data-bs-toggle="dropdown">AICTE</NavLink>
+                  <NavLink className="nav-link flux-link fw-medium ms-5 dropdown-toggle ms-5" to="#" data-bs-toggle="dropdown">AICTE</NavLink>
                   <ul className="dropdown-menu flux-dropdown">
                     <li><Link className="dropdown-item" to="/aicte/mandatory-disclosure" onClick={closeMenu}>Mandatory Disclosure</Link></li>
                     <li><a className="dropdown-item" href="https://aicte.gov.in/">AICTE Feedback</a></li>
@@ -131,7 +131,7 @@ const CommonMenu = () => {
                   </ul>
                 </li>
                 <li className="nav-item mx-lg-1 dropdown flux-nav-item">
-                  <NavLink className="nav-link flux-link fw-medium dropdown-toggle" to="#" data-bs-toggle="dropdown">Academics</NavLink>
+                  <NavLink className="nav-link flux-link fw-medium dropdown-toggle ms-5" to="#" data-bs-toggle="dropdown">Academics</NavLink>
                   <ul className="dropdown-menu flux-dropdown">
                     <li><Link className="dropdown-item" to="/academics/programme" onClick={closeMenu}>Programme</Link></li>
                     <li><Link className="dropdown-item" to="/academics/syllabus" onClick={closeMenu}>Syllabus</Link></li>
@@ -142,7 +142,7 @@ const CommonMenu = () => {
 
                 {/* 🔴 COLLAPSIBLE LINKS: Shows on Mobile & Desktop(XL). Hides on Laptop(LG) to prevent wrapping. */}
                 <li className="nav-item mx-lg-1 dropdown flux-nav-item d-lg-none d-xl-block">
-                  <NavLink className="nav-link flux-link fw-medium dropdown-toggle" to="#" data-bs-toggle="dropdown">Departments</NavLink>
+                  <NavLink className="nav-link flux-link fw-medium dropdown-toggle ms-5" to="#" data-bs-toggle="dropdown">Departments</NavLink>
                   <ul className="dropdown-menu flux-dropdown">
                     <li><Link className="dropdown-item" to="/departments/electronics" onClick={closeMenu}>Electronics</Link></li>
                     <li><Link className="dropdown-item" to="/departments/computer-science" onClick={closeMenu}>Computer Science</Link></li>
@@ -150,29 +150,29 @@ const CommonMenu = () => {
                   </ul>
                 </li>
                 <li className="nav-item mx-lg-1 dropdown flux-nav-item d-lg-none d-xl-block">
-                  <NavLink className="nav-link flux-link fw-medium dropdown-toggle" to="#" data-bs-toggle="dropdown">Login</NavLink>
+                  <NavLink className="nav-link flux-link fw-medium dropdown-toggle ms-5" to="#" data-bs-toggle="dropdown">Login</NavLink>
                   <ul className="dropdown-menu flux-dropdown">
                     <li><Link className="dropdown-item" to="/login-faculty" onClick={closeMenu}>Faculty</Link></li>
                     <li><Link className="dropdown-item" to="/login-mmit-admin" onClick={closeMenu}>Admin</Link></li>
                   </ul>
                 </li>
                 <li className="nav-item mx-lg-1 dropdown flux-nav-item d-lg-none d-xl-block">
-                  <NavLink className="nav-link flux-link fw-medium dropdown-toggle" to="#" data-bs-toggle="dropdown">Placement</NavLink>
+                  <NavLink className="nav-link flux-link fw-medium dropdown-toggle ms-5" to="#" data-bs-toggle="dropdown">Placement</NavLink>
                   <ul className="dropdown-menu flux-dropdown">
                     <li><Link className="dropdown-item" to="/placement/placed-students" onClick={closeMenu}>Placed Students</Link></li>
                     <li><Link className="dropdown-item" to="/placement/mass-placed" onClick={closeMenu}>Mass Placed</Link></li>
                   </ul>
                 </li>
                 <li className="nav-item mx-lg-1 d-lg-none d-xl-block">
-                  <NavLink className="nav-link flux-link fw-medium" to="/gallery" onClick={closeMenu}>Gallery</NavLink>
+                  <NavLink className="nav-link flux-link fw-medium ms-5" to="/gallery" onClick={closeMenu}>Gallery</NavLink>
                 </li>
                 <li className="nav-item mx-lg-1 d-lg-none d-xl-block">
-                  <NavLink className="nav-link flux-link fw-medium" to="/contact-us" onClick={closeMenu}>Contact Us</NavLink>
+                  <NavLink className="nav-link flux-link fw-medium ms-5" to="/contact-us" onClick={closeMenu}>Contact Us</NavLink>
                 </li>
 
                 {/* 🟡 THE "MORE" MENU: Appears ONLY on Laptop(LG) screens to absorb the overflow. */}
                 <li className="nav-item mx-lg-1 dropdown flux-nav-item d-none d-lg-block d-xl-none">
-                  <NavLink className="nav-link flux-link fw-medium dropdown-toggle" to="#" data-bs-toggle="dropdown">More</NavLink>
+                  <NavLink className="nav-link flux-link fw-medium ms-5 dropdown-toggle ms-5" to="#" data-bs-toggle="dropdown">More</NavLink>
                   <ul className="dropdown-menu flux-dropdown" style={{ minWidth: '220px' }}>
                     
                     <li><h6 className="dropdown-header text-warning fw-bold mb-0">Departments</h6></li>
