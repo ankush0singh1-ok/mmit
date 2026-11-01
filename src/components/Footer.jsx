@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const Footer = () => {
   // 1. Dynamic Stats State
-  const [stats, setStats] = useState({ visitors: 1007, lastUpdated: null });
+  const [stats, setStats] = useState({ visitors: 1007, lastUpdated: '1-Nov-2026' });
 
   // 2. Fetch Live Stats from Backend
   useEffect(() => {
@@ -24,7 +24,7 @@ const Footer = () => {
 
   // 3. Date Formatter
   const formatLastUpdated = (dateString) => {
-    if (!dateString) return 'July 18th, 2026';
+    if (!dateString) return 'Nov 1st, 2026';
     return new Date(dateString).toLocaleDateString('en-US', { 
       day: 'numeric', 
       month: 'long', 
