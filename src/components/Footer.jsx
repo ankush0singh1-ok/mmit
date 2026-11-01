@@ -24,7 +24,7 @@ const Footer = () => {
 
   // 3. Date Formatter
   const formatLastUpdated = (dateString) => {
-    if (!dateString) return 'Nov 1st, 2026';
+    if (!dateString) return 'Oct 31st, 2026';
     return new Date(dateString).toLocaleDateString('en-US', { 
       day: 'numeric', 
       month: 'long', 
