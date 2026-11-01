@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const Footer = () => {
   // 1. Dynamic Stats State
-  const [stats, setStats] = useState({ visitors: 12717, lastUpdated: null });
+  const [stats, setStats] = useState({ visitors: 1007, lastUpdated: null });
 
   // 2. Fetch Live Stats from Backend
   useEffect(() => {
