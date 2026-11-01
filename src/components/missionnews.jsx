@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import '../App.css';
+import { AiOutlineNotification } from 'react-icons/ai';
+import { GiEyeTarget } from 'react-icons/gi';
 
 const MissionNewsSection = () => {
   const [newsItems, setNewsItems] = useState([]);
@@ -32,6 +34,7 @@ const MissionNewsSection = () => {
           {/* LEFT COLUMN: Mission & Vision */}
           <div className="col-12 col-lg-7">
             <div className="flux-card h-100 p-4 p-md-5">
+              <GiEyeTarget />
               <h2 className="fw-bold text-dark mb-4">Our <span className="text-warning">Mission & Vision</span></h2>
               
               <div className="mb-4">
@@ -69,6 +72,7 @@ const MissionNewsSection = () => {
           {/* RIGHT COLUMN: Latest Announcements (Max 10) */}
           <div className="col-12 col-lg-5">
             <div className="flux-card h-100 p-4 p-md-5 d-flex flex-column">
+              <AiOutlineNotification />
               <h4 className="fw-bold text-dark mb-4 border-bottom pb-3">Latest <span className="text-warning">Announcements</span></h4>
               
               <div className="flex-grow-1 overflow-auto pe-2" style={{ maxHeight: '400px' }}>
