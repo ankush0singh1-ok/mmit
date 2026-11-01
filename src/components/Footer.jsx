@@ -119,7 +119,7 @@ const Footer = () => {
             <p className="mb-0">All Rights Reserved</p>
           </div>
           <div className="col-md-6 text-md-end">
-            <p className="mb-1">Last Updated on: {formatLastUpdated(stats.lastUpdated)}</p>
+            <p className="mb-1">Last Updated on: {formatLastUpdated(stats.lastUpdated.toLocaleDateString())}</p>
             <p className="mb-0 d-inline-block me-3">Total Visitors: {stats.visitors.toLocaleString()}</p>
             
             {/* Scroll to top button */}
