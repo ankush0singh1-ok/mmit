@@ -3,7 +3,6 @@ import { Link, NavLink } from 'react-router-dom';
 import '../App.css';
 import IndianClock from './indianclock';
 import { Typewriter } from 'react-simple-typewriter';
-import { AiFillMail, AiOutlineClockCircle } from 'react-icons/ai';
 const CommonMenu = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
@@ -28,12 +27,11 @@ const CommonMenu = () => {
           <div className="d-flex justify-content-between align-items-center py-2 text-dark" style={{ fontSize: '12px' }}>
             <div className="d-flex gap-3">
               <span>📍 Hariharpur, Gorakhpur</span>
-              <AiFillMail />
               <a href="mailto:mmithgorakhpur@gmail.com" className="text-dark text-decoration-none flux-glow-link">
                 mmithgorakhpur@gmail.com
               </a>
             </div>
-            <div><AiOutlineClockCircle /><IndianClock /></div>
+            <div><IndianClock/></div>
           </div>
         </div>
       </div>
