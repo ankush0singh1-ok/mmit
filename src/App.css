@@ -20,7 +20,162 @@
   padding-top: 12px;
 }
 
+.flux-navbar {
+  position: relative;
+  border-radius: 16px;
+  background: rgba(18, 20, 28, 0.78);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+  overflow: visible;
+  z-index: 1000;
+}
 
+.flux-navbar::before {
+  content: "";
+  position: absolute;
+  inset: -1.5px;
+  border-radius: 17px;
+  padding: 1.5px;
+  background: linear-gradient(
+    90deg,
+    #ff9933,
+    #ffffff,
+    #138808,
+    #0052cc,
+    #ff9933
+  );
+  background-size: 300% 300%;
+  animation: tirangaBorderFlow 6s linear infinite;
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.flux-navbar-background {
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.flux-navbar-background::before {
+  content: "";
+  position: absolute;
+  inset: -50%;
+  background: linear-gradient(
+    115deg,
+    rgba(255, 153, 51, 0.24) 0%,
+    rgba(255, 255, 255, 0.14) 30%,
+    rgba(19, 136, 8, 0.24) 60%,
+    rgba(255, 153, 51, 0.24) 100%
+  );
+  background-size: 250% 250%;
+  filter: blur(22px);
+  animation: tirangaGlassWave 8s ease-in-out infinite;
+}
+
+.flux-link {
+  position: relative;
+  color: #f8f9fa !important;
+  transition: color 0.3s ease;
+}
+
+.flux-link::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 2px;
+  width: 0;
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, #ff9933, #ffffff, #138808);
+  transform: translateX(-50%);
+  transition: width 0.3s ease;
+}
+
+.flux-link:hover::after,
+.flux-link.active::after {
+  width: 80%;
+}
+
+@keyframes tirangaBorderFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 300% 50%;
+  }
+}
+
+@keyframes tirangaGlassWave {
+  0% {
+    background-position: 0% 50%;
+    transform: translateX(-8%);
+  }
+  50% {
+    background-position: 100% 50%;
+    transform: translateX(8%);
+  }
+  100% {
+    background-position: 0% 50%;
+    transform: translateX(-8%);
+  }
+}
+
+.flux-navbar {
+  position: relative;
+  border-radius: 16px;
+  background: rgba(15, 18, 26, 0.48);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35), inset 0 1px 1px rgba(255, 255, 255, 0.15);
+  overflow: visible;
+  z-index: 1000;
+}
+
+.flux-navbar-background::before {
+  content: "";
+  position: absolute;
+  inset: -60%;
+  background: linear-gradient(
+    115deg,
+    rgba(255, 153, 51, 0.32) 0%,
+    rgba(255, 255, 255, 0.18) 32%,
+    rgba(19, 136, 8, 0.32) 64%,
+    rgba(255, 153, 51, 0.32) 100%
+  );
+  background-size: 250% 250%;
+  filter: blur(36px);
+  animation: tirangaGlassWave 8s ease-in-out infinite;
+}
+
+.flux-dropdown {
+  background: rgba(15, 18, 26, 0.68) !important;
+  backdrop-filter: blur(24px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(24px) saturate(180%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.18) !important;
+  border-radius: 14px !important;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4) !important;
+}
+
+.flux-dropdown .dropdown-item {
+  color: #f8f9fa !important;
+  border-radius: 8px;
+  transition: background 0.2s ease;
+}
+
+.flux-dropdown .dropdown-item:hover {
+  background: rgba(255, 255, 255, 0.14) !important;
+}
 
 
 
