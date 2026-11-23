@@ -70,7 +70,7 @@ const CommonMenu = () => {
       </div>
 
       <div className={`flux-nav-sticky-wrapper container-fluid px-2 px-lg-4 ${isScrolled ? 'is-scrolled' : ''}`}>
-        <nav className="navbar flux-navbar w-100">
+        <nav className="navbar navbar-expand flux-navbar w-100">
           <div className="flux-navbar-background"></div>
 
           <div className="container-fluid position-relative z-index-2 justify-content-center">
