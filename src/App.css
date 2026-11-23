@@ -1,9 +1,21 @@
-/* =========================================
-   Main Header Structure & Scroll Lock
-   ========================================= */
 .flux-header-top {
   position: relative;
   width: 100%;
+}
+
+.flux-logo {
+  width: 70px;
+  height: 70px;
+  background: linear-gradient(135deg, #292826, #3d3b38);
+  color: white;
+  box-shadow: 0 0 15px rgba(63, 55, 47, 0.5);
+  overflow: hidden;
+}
+
+.logo {
+  height: 70px;
+  width: 70px;
+  object-fit: contain;
 }
 
 .flux-nav-sticky-wrapper {
@@ -17,102 +29,79 @@
 }
 
 .flux-nav-sticky-wrapper.is-scrolled {
-  padding-top: 12px;
+  padding-top: 10px;
 }
 
 .flux-navbar {
   position: relative;
-  border-radius: 16px;
-  background: rgba(18, 20, 28, 0.78);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+  background: transparent !important;
+  padding: 10px 18px !important;
   overflow: visible;
   z-index: 1000;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.flux-navbar::before {
-  content: "";
-  position: absolute;
-  inset: -1.5px;
-  border-radius: 17px;
-  padding: 1.5px;
-  background: linear-gradient(
-    90deg,
-    #ff9933,
-    #ffffff,
-    #138808,
-    #0052cc,
-    #ff9933
-  );
-  background-size: 300% 300%;
-  animation: tirangaBorderFlow 6s linear infinite;
-  -webkit-mask:
-    linear-gradient(#fff 0 0) content-box,
-    linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  pointer-events: none;
-  z-index: 0;
+.is-scrolled .flux-navbar {
+  padding: 7px 18px !important;
 }
 
 .flux-navbar-background {
   position: absolute;
   inset: 0;
   border-radius: 16px;
+  background: rgba(15, 18, 26, 0.72);
+  backdrop-filter: blur(22px) saturate(180%);
+  -webkit-backdrop-filter: blur(22px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.28), inset 0 1px 1px rgba(255, 255, 255, 0.15);
   overflow: hidden;
   pointer-events: none;
   z-index: 0;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.is-scrolled .flux-navbar-background {
+  border-radius: 50px;
+  background: rgba(15, 18, 26, 0.82);
+  border-color: rgba(255, 255, 255, 0.28);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.35);
 }
 
 .flux-navbar-background::before {
   content: "";
   position: absolute;
-  inset: -50%;
+  inset: -60%;
   background: linear-gradient(
     115deg,
-    rgba(255, 153, 51, 0.24) 0%,
-    rgba(255, 255, 255, 0.14) 30%,
-    rgba(19, 136, 8, 0.24) 60%,
-    rgba(255, 153, 51, 0.24) 100%
+    rgba(255, 153, 51, 0.28) 0%,
+    rgba(255, 255, 255, 0.14) 32%,
+    rgba(19, 136, 8, 0.28) 64%,
+    rgba(255, 153, 51, 0.28) 100%
   );
   background-size: 250% 250%;
-  filter: blur(22px);
+  filter: blur(32px);
   animation: tirangaGlassWave 8s ease-in-out infinite;
+  pointer-events: none;
 }
 
-.flux-link {
-  position: relative;
-  color: #f8f9fa !important;
-  transition: color 0.3s ease;
-}
-
-.flux-link::after {
+.flux-navbar-background::after {
   content: "";
   position: absolute;
-  left: 50%;
-  bottom: 2px;
-  width: 0;
-  height: 2px;
-  border-radius: 2px;
-  background: linear-gradient(90deg, #ff9933, #ffffff, #138808);
-  transform: translateX(-50%);
-  transition: width 0.3s ease;
-}
-
-.flux-link:hover::after,
-.flux-link.active::after {
-  width: 80%;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1.5px;
+  background: linear-gradient(90deg, #ff9933, #ffffff, #138808, #0052cc, #ff9933);
+  background-size: 300% 300%;
+  animation: tirangaBorderFlow 6s linear infinite;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
 }
 
 @keyframes tirangaBorderFlow {
-  0% {
-    background-position: 0% 50%;
-  }
-  100% {
-    background-position: 300% 50%;
-  }
+  0% { background-position: 0% 50%; }
+  100% { background-position: 300% 50%; }
 }
 
 @keyframes tirangaGlassWave {
@@ -130,249 +119,142 @@
   }
 }
 
-.flux-navbar {
+.z-index-2 {
   position: relative;
-  border-radius: 16px;
-  background: rgba(15, 18, 26, 0.48);
-  backdrop-filter: blur(24px) saturate(180%);
-  -webkit-backdrop-filter: blur(24px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35), inset 0 1px 1px rgba(255, 255, 255, 0.15);
-  overflow: visible;
-  z-index: 1000;
+  z-index: 2;
 }
 
-.flux-navbar-background::before {
+.flux-no-collapse-nav {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.flux-link {
+  position: relative;
+  color: rgba(255, 255, 255, 0.92) !important;
+  font-size: 14px !important;
+  font-weight: 500;
+  white-space: nowrap;
+  padding: 8px 12px !important;
+  margin: 0 !important;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.flux-link:hover {
+  color: #ffffff !important;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.flux-link::after {
   content: "";
   position: absolute;
-  inset: -60%;
-  background: linear-gradient(
-    115deg,
-    rgba(255, 153, 51, 0.32) 0%,
-    rgba(255, 255, 255, 0.18) 32%,
-    rgba(19, 136, 8, 0.32) 64%,
-    rgba(255, 153, 51, 0.32) 100%
-  );
-  background-size: 250% 250%;
-  filter: blur(36px);
-  animation: tirangaGlassWave 8s ease-in-out infinite;
+  left: 50%;
+  bottom: 2px;
+  width: 0;
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, #ff9933, #ffffff, #138808);
+  transform: translateX(-50%);
+  transition: width 0.3s ease;
+}
+
+.flux-link:hover::after,
+.flux-link.active::after {
+  width: 75%;
 }
 
 .flux-dropdown {
-  background: rgba(15, 18, 26, 0.68) !important;
-  backdrop-filter: blur(24px) saturate(180%) !important;
-  -webkit-backdrop-filter: blur(24px) saturate(180%) !important;
+  background: rgba(15, 18, 26, 0.88) !important;
+  backdrop-filter: blur(22px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(22px) saturate(180%) !important;
   border: 1px solid rgba(255, 255, 255, 0.18) !important;
-  border-radius: 14px !important;
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4) !important;
+  border-radius: 12px !important;
+  padding: 8px !important;
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.4) !important;
+  position: absolute !important;
+  top: 100%;
+  margin-top: 8px !important;
+  z-index: 10000;
 }
 
 .flux-dropdown .dropdown-item {
   color: #f8f9fa !important;
   border-radius: 8px;
-  transition: background 0.2s ease;
+  font-size: 14px;
+  padding: 8px 16px;
+  transition: all 0.2s ease;
 }
 
 .flux-dropdown .dropdown-item:hover {
-  background: rgba(255, 255, 255, 0.14) !important;
+  background: rgba(255, 255, 255, 0.16) !important;
+  color: #ffffff !important;
+  padding-left: 20px;
 }
 
-
-
-
-
-/* Logo Styling */
-.flux-logo {
-  width: 70px;
-  height: 70px;
-  background: linear-gradient(135deg, #292826, #3d3b38);
-  color: white;
-  box-shadow: 0 0 15px rgba(63, 55, 47, 0.5);
-  overflow: hidden;
-}
-
-.logo {
-  height: 70px;
-  width: 70px;
-  object-fit: contain;
-}
-
-/* =========================================
-   Part 2: The Floating Flux Navbar
-   ========================================= */
-
-.flux-navbar {
-  background: transparent !important; /* Must be transparent so background layer shows */
-  padding: 15px 0 !important;
-  position: sticky;
-  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-  /* NO overflow: hidden here, so dropdowns work! */
-}
-
-.is-scrolled .flux-navbar {
-  padding: 8px 0 !important;
-  transform: translateY(-5px);
-}
-
-/* Ensure navbar content stays above the background */
-.z-index-2 {
-  position: sticky;
-  z-index: 2;
-}
-
-/* =========================================
-   The Dedicated Background Layer
-   ========================================= */
-
-.flux-navbar-background {
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  
-  /* Default State Glass Effect */
-  background: rgba(20, 20, 25, 0.8); 
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-  
-  border-radius: 12px;
-  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-  z-index: 0;
-  
-  /* Safe to hide overflow here to contain the animation */
-  overflow: hidden; 
-}
-
-/* Scroll Lock State for the Background */
-.is-scrolled .flux-navbar-background {
-  background: rgba(65, 60, 56, 0.75);
-  box-shadow: 0 15px 40px rgba(83, 79, 74, 0.3);
-  border-radius: 50px; /* Transforms into a full rounded pill */
-  border: 1px solid rgba(255, 255, 255, 0.4);
-}
-
-/* =========================================
-   Indian Flag Reflection Animation
-   ========================================= */
-
-.flux-navbar-background::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -150%;
-  width: 65%;
-  height: 100%;
-  
-  /* Saffron, White, and Green Gradient Reflection */
-  background: linear-gradient(
-    to right,
-    rgba(255, 255, 255, 0) 0%,
-    rgba(255, 153, 51, 0.6) 35%,   /* Saffron */
-    rgba(255, 255, 255, 0.8) 50%,  /* White */
-    rgba(19, 136, 8, 0.6) 65%,     /* Green */
-    rgba(255, 255, 255, 0) 100%
-  );
-  
-  transform: skewX(-25deg);
-  animation: indian-flag-shimmer 13s infinite;
-  pointer-events: none;
-}
-
-@keyframes indian-flag-shimmer {
-  0% { left: -150%; }
-  50% { left: 200%; } 
-  100% { left: 200%; } 
-}
-
-/* =========================================
-   Nav Links & Interactions
-   ========================================= */
-
-.flux-link {
-  color: rgba(255, 255, 255, 0.9) !important;
-  font-weight: 300;
-  font-size: 15px;
-  letter-spacing: 0.2px;
-  position: relative;
-  transition: all 0.3s ease;
-  padding: 10px 15px !important;
-}
-
-.flux-link:hover {
-  color: #fff !important;
-  background: rgba(255, 255, 255, 0.15);
-  border-radius: 8px;
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
-}
-
-/* =========================================
-   Hover Dropdowns (Desktop)
-   ========================================= */
-
-@media all and (min-width: 992px) {
-  .navbar .nav-item.dropdown:hover .dropdown-menu {
+@media (min-width: 992px) {
+  .flux-navbar .nav-item.dropdown:hover .dropdown-menu {
     display: block;
     opacity: 1;
     visibility: visible;
-    transform: translateY(0) scale(1);
+    transform: translateY(0);
   }
-  
+
   .flux-dropdown {
-    background: rgba(30, 30, 35, 0.9);
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 12px;
-    padding: 10px;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
-    
     display: block;
     opacity: 0;
     visibility: hidden;
-    transform: translateY(15px) scale(0.95);
-    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    transform-origin: top;
-  }
-  
-  .is-scrolled .flux-dropdown {
-    background: rgba(37, 36, 35, 0.95);
+    transform: translateY(10px);
+    transition: all 0.25s ease;
   }
 }
 
-.flux-dropdown .dropdown-item {
-  color: #ddd;
-  border-radius: 8px;
-  transition: all 0.2s ease;
-  font-size: 15px;
-  padding: 10px 20px;
+@media (min-width: 992px) and (max-width: 1300px) {
+  .flux-no-collapse-nav {
+    gap: 4px;
+  }
+
+  .flux-link {
+    font-size: 13px !important;
+    padding: 7px 8px !important;
+  }
 }
 
-.is-scrolled .flux-dropdown .dropdown-item {
-  color: white;
+@media (max-width: 991px) {
+  .flux-navbar {
+    padding: 10px 8px !important;
+  }
+
+  .flux-no-collapse-nav {
+    flex-wrap: wrap !important;
+    gap: 4px 8px;
+  }
+
+  .flux-link {
+    font-size: 13px !important;
+    padding: 6px 8px !important;
+  }
 }
 
-.flux-dropdown .dropdown-item:hover {
-  background: rgba(255, 255, 255, 0.2);
-  color: #fff;
-  padding-left: 22px; 
-}
-/* =========================================
-   Hero Section Layout
-   ========================================= */
-
-/* -- Image Slider Styling -- */
 .custom-carousel {
-  border: 5px solid #ffffff; /* Thick white border from the image */
+  border: 5px solid #ffffff;
   border-radius: 10px;
   background-color: #f8f9fa;
 }
 
 .hero-carousel-img {
-  height: 450px; /* Adjust this height as needed */
+  height: 450px;
   object-fit: cover;
   object-position: center;
 }
 
-/* Custom styling for the slider arrows to make them pop more */
 .custom-carousel .carousel-control-prev-icon,
 .custom-carousel .carousel-control-next-icon {
   background-color: rgba(0, 0, 0, 0.5);
@@ -380,79 +262,65 @@
   padding: 20px;
 }
 
-/* -- Dignitary Sidebar Styling -- */
 .dignitary-sidebar {
-  background-color: #f6f7fb; /* Light grayish-blue background */
+  background-color: #f6f7fb;
   border: 1px solid #e0e0e0;
   padding: 10px 15px;
 }
 
 .dignitary-card {
   padding: 15px 10px;
-  border-bottom: 1px solid #e2e5ec; /* Subtle divider between profiles */
-  flex: 1; /* Helps distribute them evenly */
+  border-bottom: 1px solid #e2e5ec;
+  flex: 1;
 }
 
-/* Remove the bottom border on the last profile */
 .dignitary-card:last-child {
   border-bottom: none;
 }
 
-/* Circular Images */
 .dignitary-avatar-wrapper {
   width: 70px;
   height: 70px;
   border-radius: 50%;
   overflow: hidden;
   border: 2px solid #ddd;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .dignitary-avatar {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: top; /* Ensures faces aren't cut off */
+  object-position: top;
 }
 
-/* Typography matching the screenshot */
 .dignitary-name {
-  color: #1a237e; /* Dark Blue */
+  color: #1a237e;
   font-size: 15px;
   font-weight: 700;
   text-align: center;
 }
 
 .dignitary-title {
-  color: #c62828; /* Deep Red/Orange */
+  color: #c62828;
   font-size: 13px;
   font-weight: 500;
   text-align: center;
   line-height: 1.3;
 }
-/* =========================================
-   Mission, Vision & News (Light Flux Theme)
-   ========================================= */
 
-/* Clean white background for the whole section */
 .flux-section-bg {
-  background-color: #ffffff; 
+  background-color: #ffffff;
 }
 
-/* =========================================
-   Flux Glass Cards (Mission & Vision)
-   ========================================= */
-
 .flux-card {
-  /* Frosted White Glass */
   background: rgba(255, 255, 255, 0.9);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(0, 0, 0, 0.05);
   border-radius: 16px;
   position: relative;
-  overflow: hidden; 
-  /* Softer shadows for light mode */
+  overflow: hidden;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -462,21 +330,18 @@
   box-shadow: 0 15px 40px rgba(240, 133, 25, 0.15);
 }
 
-/* The Animated Glowing Border (Kept subtle for white background) */
 .flux-card::before {
   content: '';
   position: absolute;
-  top: -2px; left: -2px; right: -2px; bottom: -2px;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
   background: linear-gradient(45deg, rgba(240, 133, 25, 0.4), transparent, rgba(0, 32, 96, 0.3));
   z-index: 0;
   border-radius: 18px;
   transition: all 0.5s ease;
   animation: pulseGlow 4s infinite alternate;
-}
-
-.z-index-2 {
-  position: relative;
-  z-index: 2;
 }
 
 .flux-icon-box {
@@ -492,12 +357,7 @@
   100% { opacity: 1; }
 }
 
-/* =========================================
-   Flux News Container (Light Mode)
-   ========================================= */
-
 .flux-news-container {
-  /* Frosted White Glass */
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
@@ -506,11 +366,13 @@
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
 }
 
-/* Glowing border for the news box */
 .flux-news-container::before {
   content: '';
   position: absolute;
-  top: -1px; left: -1px; right: -1px; bottom: -1px;
+  top: -1px;
+  left: -1px;
+  right: -1px;
+  bottom: -1px;
   border-radius: 16px;
   background: linear-gradient(180deg, rgba(240, 133, 25, 0.5), transparent);
   z-index: 0;
@@ -521,11 +383,11 @@
   background: rgba(240, 133, 25, 0.95);
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
   border-radius: 16px 16px 0 0;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 .news-ticker-window {
-  overflow: hidden; 
+  overflow: hidden;
 }
 
 .news-scroller {
@@ -538,7 +400,7 @@
 
 @keyframes scrollUp {
   0% { transform: translateY(0); }
-  100% { transform: translateY(-50%); } 
+  100% { transform: translateY(-50%); }
 }
 
 .news-item {
@@ -551,7 +413,6 @@
   color: #f08519 !important;
 }
 
-/* Fade out effect blending into WHITE instead of black */
 .flux-news-fade-bottom {
   position: absolute;
   bottom: 0;
@@ -562,12 +423,10 @@
   pointer-events: none;
   border-radius: 0 0 16px 16px;
 }
-html,body {
+
+html, body {
   max-width: 100%;
 }
-/* =========================================
-   Principal Message Section
-   ========================================= */
 
 .principal-photo-wrapper {
   padding: 10px;
@@ -576,19 +435,18 @@ html,body {
 
 .principal-photo {
   width: 100%;
-  max-width: 340px; /* Controls how large the photo can get */
+  max-width: 340px;
   height: auto;
   object-fit: cover;
-  border: 5px solid rgb(184, 109, 109); /* Gives it a clean photo frame look */
+  border: 5px solid rgb(184, 109, 109);
   position: relative;
   z-index: 2;
 }
 
-/* The Cool Flux Offset Background behind the photo */
 .photo-accent-bg {
   position: absolute;
   top: 25px;
-  left: 25x;
+  left: 25px;
   right: 0px;
   bottom: 0px;
   background: linear-gradient(135deg, #f08519 0%, #ffc107 100%);
@@ -597,35 +455,32 @@ html,body {
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-/* Animation on Hover */
 .principal-photo-wrapper:hover .photo-accent-bg {
   transform: translate(-15px, -15px);
 }
 
-/* Soften the border line above the signature */
 .principal-signature {
   border-color: rgba(0, 0, 0, 0.08) !important;
 }
-/* --- Features & Facilities Styles --- */
+
 .facility-card {
   background-color: #ffffff;
-  border: 1.5px solid #f39c12; /* Distinctive orange border */
-  border-radius: 12px;         /* Rounded corners */
+  border: 1.5px solid #f39c12;
+  border-radius: 12px;
   transition: all 0.3s ease-in-out;
   min-height: 140px;
 }
 
-/* Optional hover effect to make the grid feel interactive */
 .facility-card:hover {
   box-shadow: 0 6px 20px rgba(243, 156, 18, 0.15);
   transform: translateY(-4px);
-  background-color: #fffaf0; /* Very slight orange tint on hover */
+  background-color: #fffaf0;
 }
 
 .facility-icon {
   width: 50px;
   height: 50px;
-  color: #f39c12; /* Matches the border color */
+  color: #f39c12;
 }
 
 .facility-icon svg {
@@ -633,14 +488,14 @@ html,body {
   height: 100%;
   fill: currentColor;
 }
-/* --- Footer Styles --- */
+
 .footer-bg {
-  background-color: #1a1a1a; /* Very dark gray, almost black */
+  background-color: #1a1a1a;
   color: #ffffff;
 }
 
 .footer-heading {
-  color: #f39c12; /* Matches the orange headings */
+  color: #f39c12;
   font-weight: 600;
   font-size: 1.1rem;
 }
@@ -650,7 +505,7 @@ html,body {
 }
 
 .footer-list a {
-  color: #e0e0e0; /* Light gray text for links */
+  color: #e0e0e0;
   text-decoration: none;
   transition: color 0.2s ease-in-out;
   display: flex;
@@ -658,114 +513,20 @@ html,body {
 }
 
 .footer-list a:hover {
-  color: #f39c12; /* Turns orange on hover */
+  color: #f39c12;
 }
 
 .footer-icon {
   width: 16px;
   height: 16px;
-  color: #f39c12; /* Orange icons */
+  color: #f39c12;
   flex-shrink: 0;
 }
 
-/* Specific map iframe border to keep it contained nicely */
 .map-container {
   border: 1px solid #333;
 }
 
-/* Subtle separator lines for bottom section */
 .border-secondary {
   border-color: #333 !important;
-}
-
-
-/* =========================================
-   1. DESKTOP FIX: Prevent Links Overflowing
-   ========================================= */
-
-/* When the screen is a laptop/tablet (992px to 1300px), shrink the links slightly so all 9 fit inside the pill */
-@media (min-width: 992px) and (max-width: 1300px) {
-  .flux-navbar .navbar-nav {
-    gap: 2px !important; /* Reduce space between links */
-  }
-  
-  .flux-link {
-    font-size: 13px !important; /* Slightly smaller text */
-    padding: 8px 6px !important; /* Less padding */
-    letter-spacing: 0px !important;
-  }
-}
-
-/* =========================================
-   2. MOBILE FIX: Fix the "White Box" Dropdowns
-   ========================================= */
-
-/* Apply these fixes only when the hamburger menu is active (< 992px) */
-@media (max-width: 991px) {
-  
-  /* Remove the giant white box and make it blend into the mobile menu */
-  .flux-navbar .dropdown-menu {
-    background-color: rgba(0, 0, 0, 0.15) !important;
-    border: 1px solid rgba(255, 255, 255, 0.05) !important;
-    box-shadow: inset 0 2px 5px rgba(0,0,0,0.1) !important;
-    margin-top: 5px;
-    padding: 10px;
-    position: static !important; /* Forces the dropdown to push other links down, rather than floating over them */
-  }
-
-  /* Fix the dropdown text color so it is visible */
-  .flux-navbar .dropdown-item {
-    color: rgba(255, 255, 255, 0.85) !important;
-    font-size: 14px;
-    padding: 10px 15px;
-  }
-
-  .flux-navbar .dropdown-item:hover {
-    background-color: rgba(255, 255, 255, 0.2) !important;
-    color: #ffffff !important;
-  }
-  
-  /* Simplify the mobile background to prevent accordion height bugs */
-  .flux-navbar {
-    background: rgba(45, 45, 50, 0.98) !important;
-    border-radius: 12px;
-    padding: 15px !important;
-  }
-  
-  /* Hide the complex desktop sweeping animation layer on mobile to keep the menu clean and scrollable */
-  .flux-navbar-background {
-    display: none !important; 
-  }
-}
-.flux-no-collapse-nav {
-  display: flex !important;
-  flex-direction: row !important;
-  flex-wrap: wrap !important;
-  justify-content: center;
-  align-items: center;
-  gap: 6px 14px;
-  width: 100%;
-}
-
-@media (max-width: 991px) {
-  .flux-navbar {
-    padding: 10px 8px !important;
-  }
-
-  .flux-no-collapse-nav {
-    gap: 4px 8px;
-  }
-
-  .flux-no-collapse-nav .flux-link {
-    font-size: 13px !important;
-    padding: 6px 8px !important;
-  }
-
-  .flux-no-collapse-nav .dropdown-menu {
-    position: absolute !important;
-    background: rgba(30, 30, 35, 0.96) !important;
-    backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.15) !important;
-    z-index: 10000;
-  }
 }
